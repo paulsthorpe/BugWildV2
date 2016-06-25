@@ -50,8 +50,6 @@ Route::get('/admin/add_product_category', 'AdminProductController@addCategory');
 
 Route::post('/admin/add_product_category', 'AdminProductController@saveCategory');
 
-Route::get('/admin/edit_product_category/{id}', 'AdminProductController@editCategory');
-
 Route::patch('/admin/edit_product_category/{id}', 'AdminProductController@updateCategory');
 
 Route::patch('/admin/delete_product_category/{id}', 'AdminProductController@deleteCategory');
@@ -72,15 +70,13 @@ Route::patch('/admin/delete_post/{id}', 'AdminBlogController@delete');
 
 
 
-Route::get('/admin/posts_categories', 'AdminBlogController@categoryIndex');
+Route::get('/admin/post_categories', 'AdminBlogController@categoryIndex');
 
 Route::get('/admin/add_post_category', 'AdminBlogController@addCategory');
 
 Route::post('/admin/add_post_category', 'AdminBlogController@saveCategory');
 
-Route::get('/admin/edit_post_category/{id}', 'AdminBlogController@editCategory');
-
-Route::patch('/admin/edit_post_category/{id}', 'AdminBlogController@updateCategory');
+Route::patch('/admin/edit_post_category', 'AdminBlogController@updateCategory');
 
 Route::patch('/admin/delete_post_category/{id}', 'AdminBlogController@deleteCategory');
 

@@ -15,11 +15,13 @@ class CreatePostCategoriesTable extends Migration
       Schema::create('post_categories', function (Blueprint $table) {
           $table->increments('id');
           $table->string('title');
+          $table->timestamps();
       });
 
       Schema::create('post_post_category', function (Blueprint $table) {
           $table->integer('post_category_id')->unsigned()->index();
           $table->integer('post_id')->unsigned()->index();
+          $table->timestamps();
       });
     }
 

@@ -12,15 +12,17 @@ class CreateProductCategoriesTable extends Migration
      */
     public function up()
     {
-      
+
         Schema::create('product_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->timestamps();
         });
 
         Schema::create('product_product_category', function (Blueprint $table) {
             $table->integer('product_category_id')->unsigned()->index();
             $table->integer('product_id')->unsigned()->index();
+            $table->timestamps();
         });
 
     }

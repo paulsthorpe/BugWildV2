@@ -1,6 +1,10 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "mixins.scss";
 @import "modules/landing";
+@import "modules/sb-admin.css";
+@import "modules/admin.scss";
+@import "modules/layout.scss";
+
 
 * {
     box-sizing: border-box;

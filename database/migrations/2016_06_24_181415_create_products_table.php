@@ -27,21 +27,25 @@ class CreateProductsTable extends Migration
         Schema::create('product_product_size', function (Blueprint $table) {
             $table->integer('product_size_id')->unsigned()->index();
             $table->integer('product_id')->unsigned()->index();
+            $table->timestamps();
         });
 
         Schema::create('product_product_color', function (Blueprint $table) {
             $table->integer('product_color_id')->unsigned()->index();
             $table->integer('product_id')->unsigned()->index();
+            $table->timestamps();
         });
 
         Schema::create('featured_product_product', function (Blueprint $table) {
             $table->integer('featured_product_id')->unsigned()->index();
             $table->integer('product_id')->unsigned()->index();
+            $table->timestamps();
         });
 
         Schema::create('on_sale_product', function (Blueprint $table) {
             $table->integer('on_sale_id')->unsigned()->index();
             $table->integer('product_id')->unsigned()->index();
+            $table->timestamps();
         });
     }
 

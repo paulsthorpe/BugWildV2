@@ -12,8 +12,8 @@ class AdminBlogController extends Controller
 {
 
     public function index(){
-      $posts = Post::all();
-      return view('admin.products_index', compact('posts'));
+      $posts = Post::orderBy('id','DESC')->get();;
+      return view('admin.posts_index', compact('posts'));
     }
 
     public function add(){
@@ -22,7 +22,29 @@ class AdminBlogController extends Controller
     }
 
     public function save(Request $request){
+      //instantiate new post
+        $post = new Post;
+        //assign data
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->tags = $request->tags;
+        $post->slug = str_slug($post_title);
+        //store image name to pass to image field
+        $imageName = $request->file('image')->getClientOriginalName();
+        //move imave to directory
+        $file = $request->file('image')->move(public_path()."/images/blog_images/", $imageName);
+        //save image name
+        $post->image = $imageName;
+        //create new post
+        $post->save();
+        //if categories were applied attach them to the post
+        if($request->categories){
 
+          foreach($request->categories as $cat){
+            $post->categories()->attach($cat);
+          }//foreach
+
+        }//if
 
       return redirect('/admin');
     }
@@ -32,21 +54,42 @@ class AdminBlogController extends Controller
       return view('admin.edit_post', compact('$post','categories'));
     }
 
-    public function update(){
+    public function update($post,Request $request){
+      //assign data
+      $post->id = $post->id;
+      $post->title = $request->title;
+      $post->body = $request->body;
+      $post->slug = str_slug($post->title);
+      //store image name to pass to image field, if image was uploaded
+      if($request->file('image')){
+        $imageName = $request->file('image')->getClientOriginalName();
+        //move imave to directory
+        $file = $request->file('image')->move(public_path()."/blog_images/", $imageName);
+        //save image name
+        $post->image = $imageName;
+      }
+      //create new post
+      $post->save();
+      //if categories were applied attach them to the post after detaching previous
+      if($request->categories){
+        $post->categories()->detach();
+        foreach($request->categories as $cat){
+          $post->categories()->attach($cat);
+        }//foreach
 
+      }//if
 
       return redirect('/admin');
     }
 
-    public function delete(){
-
-
+    public function delete(Post $id){
+      $id->delete();
       return redirect('/admin');
     }
 
     public function categoryIndex(){
       $categories = PostCategory::all();
-      return view('admin.post_categories', compact('categories'))
+      return view('admin.blog_categories', compact('categories'));
     }
 
     public function saveCategory(Request $request){

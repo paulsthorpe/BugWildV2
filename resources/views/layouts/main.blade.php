@@ -2,14 +2,14 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/app.css" type="text/css">
+    <link rel="stylesheet" href="/css/app.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <!-- <script src="js/scripts.js"></script> -->
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
     <title>@yield('title')</title>
 </head>
-<header>
+<header class="main-nav">
   <div class="logo">
     <img src="images/design_images/bw.png" alt="bugwild logo , bugwildflyco , custom flies , fly tying" >
   </div>
@@ -20,6 +20,8 @@
   <ul id="menu">
     <li class="menu-items"><a href="/">Home</a></li>
     <li class="menu-items"><a href="/shop">Shop</a></li>
+    <li></li>
+    <!-- <li></li> -->
     <li class="menu-items"><a href="/cart">Cart</a></li>
     <li class="menu-items"><a href="/blog">Blog</a></li>
   </ul>

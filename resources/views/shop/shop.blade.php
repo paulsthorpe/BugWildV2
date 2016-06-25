@@ -1,7 +1,13 @@
 @extends('layouts.main')
-
+@section('title')
+@if(!empty($page_title))
+BugWildFlyCo. {{$page_title}}
+@else
+BugWildFlyCo.
+@endif
+@endsection
 @section('content')
-<body>
+<body class="shop">
   <h1 style="font-size: 5em; margin-top: 75px;">
     @if(!empty($page_title))
     {{$page_title}}
@@ -31,7 +37,7 @@
             <div class="col-lg-3" id="item-thumbnail">
               <div class="thumbnail-content-container">
                 <div class="thumbnail-image">
-                  <img src="{{$product->image1}}">
+                  <img src="/images/product_images/{{$product->image1}}">
                 </div>
                 <h2>{{$product->title}}</h2>
                 <a href="/shop/{{$product->slug}}">

@@ -15,12 +15,14 @@ class ShopController extends Controller
 
     public function index(){
       $products = Product::all();
-      return view('shop.shop');
+      $categories = ProductCategory::all();
+      return view('shop.shop', compact('products', 'categories'));
     }
 
     public function item($slug){
       $product = Product::where('slug',$slug)->firstOrFail();
-      return view('shop.product', 'product');
+      $categories = ProductCategory::all();
+      return view('shop.product', compact('product', 'categories'));
     }
 
     // public function featured(){

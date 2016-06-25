@@ -1,0 +1,147 @@
+.main-nav {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("/images/design_images/river.jpg");
+  background: -webkit-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+  background: -moz-linear-gradient(top, rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+  background: -o-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  .logo {
+    position: absolute;
+    top: 0;
+    width: 30%;
+    left: 50%;
+    margin-left: -15%;
+    img {
+      max-width: 100%;
+      max-height: 250px;
+    }
+
+  }//logo
+
+  .drop-button {
+    display: none;
+  }
+
+  nav {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  height: 250px;
+
+    ul {
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      top: 0;
+      left: 0;
+      padding-top: 50px;
+      display: flex;
+
+      li {
+        display: inline-block;
+        flex: 1;
+        list-style: none;
+        font-size: 2em;
+
+        a {
+          &::before,
+          &::after{
+            display: inline-block;
+            opacity: 0;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+          }
+          &::before{
+            margin-right: 5px;
+            content: '[';
+            font-weight: bolder;
+            -webkit-transform: translateX(20px);
+            -moz-transform: translateX(20px);
+            transform: translateX(20px);
+          }
+          &::after{
+            margin-left: 5px;
+            content: ']';
+            font-weight: bolder;
+            -webkit-transform: translateX(-20px);
+            -moz-transform: translateX(-20px);
+            transform: translateX(-20px);
+          }
+          &:hover::before,
+          &:hover::after,
+          &:focus::before,
+          &:focus::after {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            transform: translateX(0px);
+            color: #fff;
+          }
+
+        }
+
+      }//li
+
+    }//ul
+
+  }//nav
+
+}//main-nav
+
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: auto;
+  margin-top: 300px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("/images/design_images/river.jpg");
+  background: -webkit-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+  background: -moz-linear-gradient(top, rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+  background: -o-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: rgba(227, 137, 23, 1);
+  text-align: center;
+
+  .footer-container {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 20px auto 10px auto;
+    text-align: center;
+    h3 {
+      text-decoration: underline;
+      margin-bottom: 3px;
+    }
+    div {
+      ul {
+        list-style: none;
+        font-size: 1.3em;
+      }
+      a {
+        i {
+          font-size: 1.8em;
+          padding: 10px;
+        }//i
+      }//a
+    }//div
+    .col-lg-12 {
+      p {
+        margin-bottom: 2px;
+      }
+    }
+  }//.footer-container
+}
