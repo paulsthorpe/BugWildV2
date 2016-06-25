@@ -8,15 +8,17 @@ class Product extends Model
 {
 
     public function sizes(){
-      return $this->hasMany('App\ProductSize');
+      return $this->belongsToMany('App\ProductSize');
     }
 
     public function colors(){
-      return $this->hasMany('App\ProductColor');
+      return $this->belongsToMany('App\ProductColor');
     }
 
     public function category(){
       return $this->belongsToMany('App\ProductCategory');
     }
+
+
 
 }

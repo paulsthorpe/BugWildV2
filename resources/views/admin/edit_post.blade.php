@@ -5,18 +5,21 @@
 <div class="container-fluid">
   <div class="col-md-12">
   <div class="row">
-    <h1 class="page-header">Add Post</h1>
+    <h1 class="page-header">Edit Post</h1>
   </div>
-    <form action="/admin/post" method="post" enctype="multipart/form-data">
+    <form action="/admin/post/{{$post->id}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
+      {{ method_field('PATCH') }}
       <div class="col-md-8">
         <div class="form-group">
-          <label for="product-title">Post Title </label>
-          <input type="text" name="title" class="form-control">
+          <label for="product-title">Post Title</label>
+          <input type="text" name="title" class="form-control" value="{{$post->title}}">
         </div>
         <div class="form-group">
           <label for="post-content">Post Content</label>
-          <textarea name="body" id="" cols="30" rows="30" class="form-control"></textarea>
+          <textarea name="body" id="" cols="30" rows="30" class="form-control">
+            {{$post->body}}
+          </textarea>
         </div>
       </div><!--Main Content-->
     <!-- SIDEBAR-->
@@ -25,7 +28,7 @@
         <div class="form-group">
           <label for="post_categories">Post Category</label>
           <hr>
-          <select name="categories" id="" class="form-control">
+          <select name="category" id="" class="form-control">
             @if(!empty($categories))
               @foreach($categories as $category)
                 <option value="{{$category->id}}">{{$category->title}}</option>;

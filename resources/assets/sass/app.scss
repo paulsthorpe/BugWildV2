@@ -4,7 +4,8 @@
 @import "modules/sb-admin.css";
 @import "modules/admin.scss";
 @import "modules/layout.scss";
-
+@import "modules/shop.scss";
+@import "modules/item.scss";
 
 * {
     box-sizing: border-box;
@@ -22,6 +23,9 @@ a:visited {
 }
 h1 {
     text-shadow: 1px 1px #ccc, 2px 2px #ccc, 3px 3px #ccc;
+}
+li {
+  list-style: none;
 }
 .btn-small {
     display: inline-block;

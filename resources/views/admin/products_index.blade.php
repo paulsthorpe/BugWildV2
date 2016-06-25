@@ -24,13 +24,16 @@
               <td>
                 <img src="/images/product_images/{{$product->image1}}" alt="">
               </td>
-              <td>{{$product->category}}</td>
-              <td>{{$product->price}}</td>
-              <td><a href="admin/edit_product/{{$product->id}}"><button>Edit this Product</button></a></td>
               <td>
-                <form action="admin/delete_product/{{$product->id}}" method="post">
-                  {{ method_field('PATCH') }}
-                  <button onclick='return confirm( "Are you sure you want to delete" )'>
+                {{$product->cat}}
+              </td>
+              <td>{{$product->price}}</td>
+              <td><a href="/admin/edit_product/{{$product->id}}"><button class="btn btn-primary">Edit this Product</button></a></td>
+              <td>
+                <form action="/admin/product/{{$product->id}}" method="post">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <button class="btn btn-danger"onclick='return confirm( "Are you sure you want to delete" )'>
                     Delete this Product
                   </button>
                 </form>

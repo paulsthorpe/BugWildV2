@@ -11,4 +11,5 @@ class ProductCategory extends Model
       return $this->hasMany('App\Product');
     }
 
+
 }

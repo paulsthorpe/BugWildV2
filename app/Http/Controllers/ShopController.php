@@ -20,9 +20,10 @@ class ShopController extends Controller
     }
 
     public function item($slug){
-      $product = Product::where('slug',$slug)->firstOrFail();
+      $product = Product::with('colors' , 'sizes')->where('slug',$slug)->firstOrFail();
+      $new_products = Product::orderBy('id','DESC')->take(3);
       $categories = ProductCategory::all();
-      return view('shop.product', compact('product', 'categories'));
+      return view('shop.product', compact('product', 'categories', 'new_products'));
     }
 
     // public function featured(){

@@ -35,13 +35,18 @@ Route::get('/admin/products', 'AdminProductController@index');
 
 Route::get('/admin/add_product', 'AdminProductController@add');
 
-Route::post('/admin/add_product', 'AdminProductController@save');
+Route::post('/admin/product', 'AdminProductController@save');
 
-Route::get('/admin/edit_product/{id}', 'AdminProductController@edit');
+Route::get('/admin/edit_product/{product}', 'AdminProductController@edit');
 
-Route::patch('/admin/edit_product/{id}', 'AdminProductController@update');
+Route::patch('/admin/product/{product}', 'AdminProductController@update');
 
-Route::patch('/admin/delete_product/{id}', 'AdminProductController@delete');
+Route::delete('/admin/product/{product}', 'AdminProductController@destroy');
+
+
+
+
+
 
 
 Route::get('/admin/product_categories', 'AdminProductController@categoryIndex');
@@ -56,17 +61,39 @@ Route::patch('/admin/delete_product_category/{id}', 'AdminProductController@dele
 
 
 
+
+
+
+Route::get('/admin/product_colors', 'AdminProductController@colorIndex');
+
+Route::post('/admin/product_colors', 'AdminProductController@addColor');
+
+Route::patch('/admin/product_colors', 'AdminProductController@patchColor');
+
+Route::delete('/admin/product_colors/{color}', 'AdminProductController@destroyColor');
+
+
+Route::get('/admin/product_sizes', 'AdminProductController@sizeIndex');
+
+Route::post('/admin/product_sizes', 'AdminProductController@addSize');
+
+Route::patch('/admin/product_sizes', 'AdminProductController@patchSize');
+
+Route::delete('/admin/product_sizes/{size}', 'AdminProductController@destroySize');
+
+
+
 Route::get('/admin/posts', 'AdminBlogController@index');
 
 Route::get('/admin/add_post', 'AdminBlogController@add');
 
-Route::post('/admin/add_post', 'AdminBlogController@save');
+Route::post('/admin/post', 'AdminBlogController@save');
 
-Route::get('/admin/edit_post/{id}', 'AdminBlogController@edit');
+Route::get('/admin/edit_post/{post}', 'AdminBlogController@edit');
 
-Route::patch('/admin/edit_post/{id}', 'AdminBlogController@update');
+Route::patch('/admin/post/{post}', 'AdminBlogController@update');
 
-Route::patch('/admin/delete_post/{id}', 'AdminBlogController@delete');
+Route::delete('/admin/post/{post}', 'AdminBlogController@destroy');
 
 
 
@@ -74,11 +101,11 @@ Route::get('/admin/post_categories', 'AdminBlogController@categoryIndex');
 
 Route::get('/admin/add_post_category', 'AdminBlogController@addCategory');
 
-Route::post('/admin/add_post_category', 'AdminBlogController@saveCategory');
+Route::post('/admin/post_category', 'AdminBlogController@saveCategory');
 
-Route::patch('/admin/edit_post_category', 'AdminBlogController@updateCategory');
+Route::patch('/admin/post_category', 'AdminBlogController@updateCategory');
 
-Route::patch('/admin/delete_post_category/{id}', 'AdminBlogController@deleteCategory');
+Route::delete('/admin/post_category/{id}', 'AdminBlogController@destroyCategory');
 
 
 

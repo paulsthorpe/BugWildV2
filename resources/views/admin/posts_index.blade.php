@@ -20,14 +20,20 @@
           @if(!empty($posts))
             @foreach($posts as $post)
               <tr>
-              <td>$post->id</td>
-              <td>$post->title</td>
-              <td>$post->category</td>
-              <td><a href="admin/edit_post/{{$post->id}}"><button>Edit this Post</button></a></td>
+              <td>{{$post->id}}</td>
+              <td>{{$post->title}}</td>
+              <td>{{$post->cat}}</td>
               <td>
-                <form action="admin/delete_post/{{$post->id}}" method="post">
-                  {{ method_field('PATCH') }}
-                  <button onclick='return confirm( "Are you sure you want to delete" )'>
+                <a href="/admin/edit_post/{{$post->id}}">
+                  <button class="btn btn-primary">Edit this Post</button>
+                </a>
+              </td>
+              <td>
+                <form action="/admin/post/{{$post->id}}" method="post">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <button class="btn btn-danger"
+                  onclick='return confirm( "Are you sure you want to delete" )'>
                     Delete this Product
                   </button>
                 </form>

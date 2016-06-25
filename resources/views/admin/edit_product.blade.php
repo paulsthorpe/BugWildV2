@@ -5,25 +5,28 @@
 <div class="container-fluid">
   <div class="col-md-12">
   <div class="row">
-    <h1 class="page-header">Add Product</h1>
+    <h1 class="page-header">Edit Product</h1>
 
   </div>
-    <form action="/admin/product" method="post" enctype="multipart/form-data">
+    <form action="/admin/product/{{$product->id}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
+      {{ method_field('PATCH') }}
       <div class="col-md-8">
         <div class="form-group">
           <label for="product-title">Product Title </label>
-          <input type="text" name="title" class="form-control">
+          <input type="text" name="title" class="form-control" value="{{$product->title}}">
         </div>
         <div class="form-group">
           <label for="product-description">Product Description</label>
-          <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+          <textarea name="description" id="" cols="30" rows="10" class="form-control">
+            {{$product->description}}
+          </textarea>
         </div>
 
       <div class="form-group row">
         <div class="col-xs-3">
           <label for="product-price">Product Price</label>
-          <input name="price" class="form-control" size="60">
+          <input name="price" class="form-control" size="60" value="{{$product->price}}">
         </div>
       </div> <!-- price row -->
       <!-- COLOR INPUTS -->

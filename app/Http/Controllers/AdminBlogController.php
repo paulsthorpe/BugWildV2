@@ -12,7 +12,12 @@ class AdminBlogController extends Controller
 {
 
     public function index(){
-      $posts = Post::orderBy('id','DESC')->get();;
+      $posts = Post::with('category')->orderBy('id','DESC')->get();
+      foreach($posts as $post){
+        foreach($post->category as $category){
+          $post->cat = $category->title;
+        }
+      }
       return view('admin.posts_index', compact('posts'));
     }
 
@@ -28,33 +33,29 @@ class AdminBlogController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->tags = $request->tags;
-        $post->slug = str_slug($post_title);
+        $post->slug = str_slug($post->title);
         //store image name to pass to image field
-        $imageName = $request->file('image')->getClientOriginalName();
-        //move imave to directory
-        $file = $request->file('image')->move(public_path()."/images/blog_images/", $imageName);
-        //save image name
-        $post->image = $imageName;
+        if(!empty($request->file)){
+          $imageName = $request->file('image')->getClientOriginalName();
+          //move imave to directory
+          $file = $request->file('image')->move(public_path()."/images/blog_images/", $imageName);
+          //save image name
+          $post->image = $imageName;
+        }
         //create new post
         $post->save();
         //if categories were applied attach them to the post
-        if($request->categories){
+        $post->category()->attach($request->category);
 
-          foreach($request->categories as $cat){
-            $post->categories()->attach($cat);
-          }//foreach
-
-        }//if
-
-      return redirect('/admin');
+      return redirect('/admin/posts');
     }
 
     public function edit(Post $post){
       $categories = PostCategory::all();
-      return view('admin.edit_post', compact('$post','categories'));
+      return view('admin.edit_post', compact('post','categories'));
     }
 
-    public function update($post,Request $request){
+    public function update(Post $post,Request $request){
       //assign data
       $post->id = $post->id;
       $post->title = $request->title;
@@ -71,20 +72,15 @@ class AdminBlogController extends Controller
       //create new post
       $post->save();
       //if categories were applied attach them to the post after detaching previous
-      if($request->categories){
-        $post->categories()->detach();
-        foreach($request->categories as $cat){
-          $post->categories()->attach($cat);
-        }//foreach
+      $post->category()->attach($request->category);
 
-      }//if
 
-      return redirect('/admin');
+      return redirect('/admin/posts');
     }
 
-    public function delete(Post $id){
-      $id->delete();
-      return redirect('/admin');
+    public function destroy(Post $post){
+      $post->delete();
+      return back();
     }
 
     public function categoryIndex(){
@@ -96,18 +92,18 @@ class AdminBlogController extends Controller
       $category = new PostCategory;
       $category->title = $request->title;
       $category->save();
-      return redirect('/admin');
+      return back();
     }
 
     public function updateCategory(Request $request){
       $category = PostCategory::find($request->id);
-      $category->title = $request->new_title;
+      $category->title = $request->title;
       $category->save();
-      return redirect('/admin');
+      return back();
     }
 
-    public function deleteCategory(PostCategory $id){
+    public function destroyCategory(PostCategory $id){
       $id->delete();
-      return redirect('/admin');
+      return back();
     }
 }
