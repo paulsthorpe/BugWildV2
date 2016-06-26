@@ -69,11 +69,6 @@ class PaypalService {
 
  }
 
-
-
-
-
-
  public function getStatus($request){
    $payment_id = Session::get('paypal_payment_id');
    $pay = Payment::get($payment_id, $this->api_context);
@@ -93,11 +88,6 @@ class PaypalService {
    }
 
   }
-
-
-
-
-
 
 
  public static function convertCurrency($value){
