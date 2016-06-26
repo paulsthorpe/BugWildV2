@@ -38,7 +38,7 @@
               <tr>
               <td>{{$size->id}}</td>
               <td>{{$size->title}}</td>
-              <td>{{$size->price}}</td>
+              <td>{{number_format(($size->price /100), 2, '.', ' ')}}</td>
               <td>
                 <form action="/admin/product_sizes/{{$size->id}}" method="post">
                   {{ method_field('DELETE') }}

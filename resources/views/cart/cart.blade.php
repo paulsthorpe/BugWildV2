@@ -23,11 +23,11 @@
               @foreach(Session::get('items') as $item)
                 <tr>
                   <td>{{$item['product_title']}}</td>
-                  <td>{{$item['base_price']}}</td>
+                  <td>$ {{number_format((($item['base_price'] + $item['base_price']) /100), 2, '.', ' ')}}</td>
                   <td>{{$item['color']}}</td>
                   <td>{{$item['size']}}</td>
                   <td>{{$item['quantity']}}</td>
-                  <td>{{$item['price_as_config']}}</td>
+                  <td>$ {{number_format(($item['price_as_config'] /100), 2, '.', ' ')}}</td>
                   <td>
                     <a href="/cart/plus/<?php echo $index; ?>"><i class="fa fa-plus-square"></i></a>
                     <a href="/cart/minus/<?php echo $index; ?>"><i class="fa fa-minus-square"></i></a>
@@ -62,7 +62,7 @@
           </tr>
           <tr class="order-total">
             <th>Items Total Price</th>
-            <td><strong><span class="amount">$ {{$cartTotal/100}}</span></strong></td>
+            <td><strong><span class="amount">$ {{number_format(($cartTotal /100), 2, '.', ' ')}}</span></strong></td>
           </tr>
           <tr class="shipping">
             <th>Shipping and Handling</th>
@@ -70,7 +70,7 @@
           </tr>
           <tr class="order-total">
             <th>Order Total</th>
-            <td><strong><span class="amount">$ {{($cartTotal+700)/100}}</span></strong></td>
+            <td><strong><span class="amount">$ {{number_format((($cartTotal+700) /100), 2, '.', ' ')}}</span></strong></td>
           </tr>
         </tbody>
         </table>

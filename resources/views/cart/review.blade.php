@@ -21,11 +21,11 @@
               @foreach(Session::get('items') as $item)
                 <tr>
                   <td>{{$item['product_title']}}</td>
-                  <td>{{$item['base_price']}}</td>
+                  <td>$ {{number_format((($item['base_price'] + $item['base_price']) /100), 2, '.', ' ')}}</td>
                   <td>{{$item['color']}}</td>
                   <td>{{$item['size']}}</td>
                   <td>{{$item['quantity']}}</td>
-                  <td>{{$item['price_as_config']}}</td>
+                  <td>$ {{number_format(($item['price_as_config'] /100), 2, '.', ' ')}}</td>
                 </tr>
               @endforeach
             @endif
@@ -43,7 +43,7 @@
             </tr>
             <tr class="order-total">
               <th>Items Total Price</th>
-              <td><strong><span class="amount">$ {{$cartTotal/100}}</span></strong> </td>
+              <td><strong><span class="amount">$ {{number_format(($cartTotal /100), 2, '.', ' ')}}</span></strong> </td>
             </tr>
             <tr class="shipping">
               <th>Shipping and Handling</th>
@@ -51,7 +51,7 @@
             </tr>
             <tr class="order-total">
               <th>Order Total</th>
-              <td><strong><span class="amount">$ {{($cartTotal+700)/100}}</span></strong> </td>
+              <td><strong><span class="amount">$ {{number_format((($cartTotal+700) /100), 2, '.', ' ')}}</span></strong> </td>
             </tr>
           </table>
         </div><!-- CART TOTALS-->
@@ -63,15 +63,19 @@
         @else
           <pre><h1>Special Instructions</h1>{{Session::get('special')}}</pre>
         @endif
-        </div>
-      </div>  <!-- row -->
-        <form action="/create_order" method="post">
+        <form action="/payment" method="post">
+          {{ csrf_field() }}
           <input type="image"
           src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout_SM.gif"
           alt="PayPal - The safer, easier way to pay online">
         </form>
+        </div>
+      </div>  <!-- row -->
+
   </div><!--Main Content-->
 
 </body>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 @endsection

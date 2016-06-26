@@ -2,6 +2,9 @@
 
 namespace App\Services;
 use Session;
+use Config;
+use App\Order;
+use App\OrderItems;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Amount;
@@ -30,157 +33,169 @@ use PayPal\Api\Transaction;
 
 class PaypalService {
 
-  //$siteURL CONFIG where paypal will redirect
   private $api_context;
-
-  //subtotal starts at 700 to account for 7.00 shipping
-
+  private $subtotal = 0;
+  private $total = 0;
+  private $items = [];
+  private $itemsList;
+  private $shipping = 700;
+  private $payer;
+  private $details;
+  private $transaction;
+  private $amount;
+  private $payment;
+  private $redirectUrls;
+  public $approvalUrl;
+  public $dbItems = [];
 
   public function __construct(){
-      // setup PayPal api context
+    $this->api_context = new ApiContext(new OAuthTokenCredential(env('PAYPAL_CLIENT'), env('PAYPAL_SECRET')));
+    $this->api_context->setConfig(Config::get('paypal.settings'));
+  }
+
+  public function createOrder(){
+
+    $this->setPayer();
+    $this->createItemsArray();
+    $this->setDetails();
+    $this->setAmount();
+    $this->makeTransaction();
+    $this->redirectUrls();
+    $this->createPayment();
+    $this->payment->create($this->api_context);
+    $this->approvalUrl = $this->payment->getApprovalLink();
+    Session::put('paypal_payment_id', $this->payment->getId());
+    return $this->approvalUrl;
+
+ }
+
+
+
+
+
+
+ public function getStatus($request){
+   $payment_id = Session::get('paypal_payment_id');
+   $pay = Payment::get($payment_id, $this->api_context);
+   Session::forget('paypal_payment_id');
+
+   $execution = new PaymentExecution();
+   $execution->setPayerId($request->PayerID);
+
+   $result = $pay->execute($execution, $this->api_context);
+   $json = json_decode($result);
+
+
+   if ($result->getState() == 'approved') { // payment made
+     $this->persistOrder($json);
+   } else {
+     dd('failed');
+   }
 
   }
 
 
-  public static function getStatus(){
-    // $product = ;
-    // $price = ;
-    // $shipping = ;//rate
-    //
-    // $total = ;
-    //
-    $settings = array(
-        /**
-         * Available option 'sandbox' or 'live'
-         */
-        'mode' => 'sandbox',
-
-        /**
-         * Specify the max request time in seconds
-         */
-        'http.ConnectionTimeOut' => 30,
-
-        /**
-         * Whether want to log to a file
-         */
-        'log.LogEnabled' => true,
-
-        /**
-         * Specify the file that want to write on
-         */
-        'log.FileName' => storage_path() . '/logs/paypal.log',
-
-        /**
-         * Available option 'FINE', 'INFO', 'WARN' or 'ERROR'
-         *
-         * Logging is most verbose in the 'FINE' level and decreases as you
-         * proceed towards ERROR
-         */
-        'log.LogLevel' => 'FINE'
-    );
-    $paypal_conf = config_path('paypal');
-    $api_context = new ApiContext(new OAuthTokenCredential('AQJAxvgTnefORKSvmZSroBmoSnZ7Njb47nW8PnJddxHeeHEPSya2S67AADJkXTDGeB2uqLk1gxNPENa9', 'EKOMiX6f7qtkWiu6ZbyRXZoC2uxd3WqA44uPH54hRGrAeapWbTX1zEs8C-ymsrKTJQorbAnZTdKIEPXj'));
-    $api_context->setConfig($settings);
-
-    $payer = new Payer();
-    $payer->setPaymentMethod('paypal');
-    //
-    $subtotal = 0;
-    $items = [];
-    foreach(session('items') as $item){
-      $product = new Item();
-      $product->setName($item['product_title'])
-           ->setCurrency('USD')
-           ->setQuantity($item['quantity'])
-           ->setPrice( $item['base_price'] + $item['upcharge']);
-      array_push($items,$product);
-      $subtotal += $item['price_as_config'];
-    }
-    $total = $subtotal + 700;
 
 
 
 
-    $itemList = new ItemList();
-    $itemList->setItems($items);
 
-    $details = new Details();
-    $details->setShipping(700)
-            ->setSubtotal($subtotal);//price+setShipping
+ public static function convertCurrency($value){
+   return number_format(($value /100), 2, '.', ' ');
+ }
 
-    $amount = new Amount();
-    $amount->setCurrency('USD')
-           ->setTotal($total)
-           ->setDetails($details);//subtotal order
+ public function setPayer(){
+   $this->payer = new Payer();
+   $this->payer->setPaymentMethod('paypal');
+ }
 
-    $transaction = new Transaction();
-    $transaction->setAmount($amount)
-                ->setItemList($itemList)
-                ->setDescription('Bugwild');//string dessc
+ public function createItemsArray(){
 
-    $redirectUrls = new RedirectUrls();
-    $redirectUrls->setReturnUrl(url('/payment'))//domainurl . '?success=true'
-        ->setCancelUrl(url('/payment'));//domainurl . '?success=true'
+   foreach(session('items') as $item){
+     $product = new Item();
+     $product->setName($item['product_title'])
+          ->setCurrency('USD')
+          ->setQuantity($item['quantity'])
+          ->setPrice( self::convertCurrency($item['base_price'] + $item['upcharge']));
+     array_push($this->items , $product);
+     $this->subtotal += $item['price_as_config'];
+   }
 
-    $payment = new Payment();
-    $payment->setIntent('sale')
-        ->setPayer($payer)
-        ->setRedirectUrls($redirectUrls)
-        ->setTransactions(array($transaction));
+   $this->total = $this->subtotal + $this->shipping;
 
-    // return print_r($payment);
-// $request = clone $payment;
-  // try {
-     $payment->create($api_context);
-  // } catch (\PayPal\Exception\PPConnectionException $e) {
-  //    if (\Config::get('app.debug')) {
-  //        echo "Exception: " . $e->getMessage() . PHP_EOL;
-  //        $err_data = json_decode($e->getData(), true);
-  //        exit;
-  //    } else {
-  //        die('There was an error handling the payment, please try again or contact paypal');
-  //    }
+   $this->makeItemList();
 
-     $approvalUrl = $payment->getApprovalLink();
+ }
 
-    //  if(isset($approvalUrl)){
-    //    echo $approvalUrl;
-    //  } else {
-    //    echo 'failed';
-    //  }
+ public function setDetails(){
+   $this->details = new Details();
+   $this->details->setShipping(self::convertCurrency($this->shipping))
+           ->setSubtotal(self::convertCurrency($this->subtotal));
+ }
 
-$link = 'http://www.google.com';
+ public function setAmount(){
+   $this->amount = new Amount();
+   $this->amount->setCurrency('USD')
+          ->setTotal(self::convertCurrency($this->total))
+          ->setDetails($this->details);
+ }
 
-    return \Redirect::away($link);
+ public function makeTransaction(){
+   $this->transaction = new Transaction();
+   $this->transaction->setAmount($this->amount)
+               ->setItemList($this->itemList)
+               ->setDescription('Order From BugwildFlyCo.');
+ }
 
-    //
-    // return back()->with('error', 'Unknown error occurred');
- // }
-  //
-  //   $payment->create($paypal);
-  //
-  //   return $approvalUrl = $payment->getApprovalLink();
-  //
-  }
-  //
-  // public function items(){
-  //
-  // }
-  //
-  // public function details(){
-  //
-  // }
-  //
-  // public function amount(){
-  //
-  // }
-  //
-  // public function transactions(){
-  //
-  // }
-  //
-  // public function makePayment(){
-  //
-  // }
+ public function makeItemList(){
+   $this->itemList = new ItemList();
+   $this->itemList->setItems($this->items);
+ }
+
+ public function redirectUrls(){
+   $this->redirectUrls = new RedirectUrls();
+   $this->redirectUrls->setReturnUrl(url('/payment'))
+        ->setCancelUrl(url('/payment'));
+ }
+
+ public function createPayment(){
+   $this->payment = new Payment();
+   $this->payment->setIntent('sale')
+       ->setPayer($this->payer)
+       ->setRedirectUrls($this->redirectUrls)
+       ->setTransactions(array($this->transaction));
+ }
+
+ public function persistOrder($json){
+   $order = new Order;
+   $orderTotal = 700;
+
+   foreach(session('items') as $item){
+     $orderTotal += $item['price_as_config'];
+   }
+
+   $order->paypal_total = $json->transactions[0]->amount->total;
+   $order->paypal_status = $json->state;
+   $order->trans_id = $json->transactions[0]->related_resources[0]->sale->id;
+   if(session('special')){
+     $order->special = session('special');
+   }
+   $order->shipped = 0;
+   $order->total = self::convertCurrency($orderTotal);
+
+   $order->save();
+
+   foreach(session('items') as $item){
+     $product = new OrderItems;
+     $product->title = $item['product_title'];
+     $product->quantity = $item['quantity'];
+     $product->color = $item['color'];
+     $product->size = $item['size'];
+     $product->total = self::convertCurrency($item['price_as_config']);
+     $product->save();
+     $order->items()->save($product);
+   }
+
+ }
 
 } //end PostService class

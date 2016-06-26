@@ -50,7 +50,9 @@ class CartController extends Controller
         $cartTotal += $item['price_as_config'];
         $itemCount += $item['quantity'];
       }
-      return view('cart.cart', compact('cartTotal','itemCount'));
+
+      
+      return back();
     }
 
     public function plus($index){

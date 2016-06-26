@@ -27,7 +27,7 @@
               <td>
                 {{$product->cat}}
               </td>
-              <td>{{$product->price}}</td>
+              <td>{{number_format(($product->price /100), 2, '.', ' ')}}</td>
               <td><a href="/admin/edit_product/{{$product->id}}"><button class="btn btn-primary">Edit this Product</button></a></td>
               <td>
                 <form action="/admin/product/{{$product->id}}" method="post">

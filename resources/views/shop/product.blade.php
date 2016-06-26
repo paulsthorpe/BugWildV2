@@ -46,21 +46,21 @@ BugWild Fly Co. {{$product->title}}
                   <label>Color</label>
                   <select class="" name="color">
                     @if(!empty($product->colors))
-                    @foreach($product->colors as $color)
-                      <option value="{{$color->title}}">{{$color->title}}</option>
-                    @endforeach
+                      @foreach($product->colors as $color)
+                        <option value="{{$color->title}}">{{$color->title}}</option>
+                      @endforeach
                     @endif
                   </select>
                   <label>Size</label>
                   <select class="" name="size">
                     @if(!empty($product->sizes))
-                    @foreach($product->sizes as $size)
-                      <option value="{{$size->title}}">
-                        {{$size->title}}
-                        @if($size->price!==0)
-                        + ${{$size->price/100}}
-                        @endif
-                      </option>
+                      @foreach($product->sizes as $size)
+                        <option value="{{$size->title}}">
+                          {{$size->title}}
+                          @if($size->price!==0)
+                          + ${{number_format(($size->price/100), 2, '.', ' ')}}
+                          @endif
+                        </option>
                     @endforeach
                     @endif
                   </select>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration
+class CreateOrderItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,16 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('total');
-            $table->float('paypal_total');
-            $table->string('paypal_status');
-            $table->string('trans_id');
-            $table->text('special');
-            $table->boolean('shipped');
+            $table->integer('order_id');
+            $table->string('title');
+            $table->integer('quantity');
+            $table->string('color');
+            $table->string('size');
+            $table->integer('total');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -32,6 +31,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('orders');
+        Schema::drop('order_items');
     }
 }
