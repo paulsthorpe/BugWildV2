@@ -24,8 +24,9 @@ BugWild Fly Co. {{$product->title}}
             @endif
           </div>
           <div class="item-details">
-          <form action="/add_to_cart" method="product">
+          <form action="/cart/add" method="product">
             {{ csrf_field() }}
+            <input type="hidden" name="id" value="{{$product->id}}">
             <h1>{{$product->title}}</h1>
             <div class="option-selectors">
               <div class="quantity">
@@ -46,7 +47,7 @@ BugWild Fly Co. {{$product->title}}
                   <select class="" name="color">
                     @if(!empty($product->colors))
                     @foreach($product->colors as $color)
-                      <option value="{{$color->id}}">{{$color->title}}</option>
+                      <option value="{{$color->title}}">{{$color->title}}</option>
                     @endforeach
                     @endif
                   </select>
@@ -54,10 +55,10 @@ BugWild Fly Co. {{$product->title}}
                   <select class="" name="size">
                     @if(!empty($product->sizes))
                     @foreach($product->sizes as $size)
-                      <option value="{{$size->id}}">
+                      <option value="{{$size->title}}">
                         {{$size->title}}
                         @if($size->price!==0)
-                        + ${{$size->price}}
+                        + ${{$size->price/100}}
                         @endif
                       </option>
                     @endforeach
@@ -67,8 +68,8 @@ BugWild Fly Co. {{$product->title}}
               </div>
               <div class="row">
                 <div class="add col-lg-12">
-                  <h3>Price Each: $ {{$product->price}}</h3>
-                  <button class="btn-small" type="submit" name="add-to-cart" href="#">Add to Cart</button>
+                  <h3>Price Each: $ {{$product->price/100}}</h3>
+                  <button class="btn-small" type="submit">Add to Cart</button>
                 </form>
                 </div>
               </div>

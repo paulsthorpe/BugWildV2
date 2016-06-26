@@ -27,17 +27,17 @@
         <li><a class="nav-tags" href="/shop">Shop</a></li>
         <li></li>
         <li></li>
-        <li><a class="nav-tags" href="checkout.php">Cart</a></li>
-        <li><a class="nav-tags" href="blog.php">Blog</a></li>
+        <li><a class="nav-tags" href="/cart">Cart</a></li>
+        <li><a class="nav-tags" href="/blog">Blog</a></li>
       </ul>
     </nav>
     <div class="logo-caption">
       <h1 class="home-header">Custom Flies, Tied To Order From</h1>
       <h1 class="home-header">BugWild Fly Co.</h1>
-      <a href="about.php"><button id="learn-more" class="btn-large">
+      <a href="/about"><button id="learn-more" class="btn-large">
       Learn More...
       </button></a>
-      <a href="shop.php"><button id="shop" class="btn-large">Shop</button></a>
+      <a href="/shop"><button id="shop" class="btn-large">Shop</button></a>
     </div>
     <div class="top">
       <button class="nav-button">

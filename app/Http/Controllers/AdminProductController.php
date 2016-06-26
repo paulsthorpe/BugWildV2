@@ -15,7 +15,7 @@ class AdminProductController extends Controller
 {
 
     public function __construct(ProductService $productService){
-        $this->productService = $productService;
+      $this->productService = $productService;
     }
 
     public function index(){
@@ -31,34 +31,8 @@ class AdminProductController extends Controller
     }
 
     public function save(Request $request){
-        // return var_dump($request->file('image'));
-        //instantiate new product
-        $product = new product;
-        //assign data
-        $product->title = $request->title;
-        $product->description = $request->description;
-        $product->slug = str_slug($product->title);
-        $product->price = $request->price;
-        //store image name to pass to image field
-        $counter = 1;
-        foreach ($request->file('image') as $image) {
-          $imageName = $image->getClientOriginalName();
-          //move imave to directory
-          $file = $image->move(public_path()."/images/product_images/", $imageName);
-          //save image name
-          $product->{'image'.$counter} = $imageName;
-          $counter++;
-        }
-
-        //create new product
-        $product->save();
-        //if categories were applied attach them to the product
-
-        $product->category()->attach($request->category);
-        $product->colors()->attach($request->colors);
-        $product->sizes()->attach($request->sizes);
+        $this->productService->save($request);
         return redirect('/admin/products');
-
     }
 
     public function edit(Product $product){
@@ -69,29 +43,7 @@ class AdminProductController extends Controller
     }
 
     public function update(Request $request, Product $product){
-      //instantiate new product
-      //assign data
-      $product->title = $request->title;
-      $product->description = $request->description;
-      $product->slug = str_slug($product->title);
-      $product->price = $request->price;
-      //store image name to pass to image field
-      if(!empty($request->file)){
-        $counter = 1;
-        foreach ($request->file('image') as $image) {
-          $imageName = $image->getClientOriginalName();
-          //move imave to directory
-          $file = $image->move(public_path()."/images/product_images/", $imageName);
-          //save image name
-          $product->{'image'.$counter} = $imageName;
-          $counter++;
-        }
-      }
-      //create new product
-      $product->save();
-      //if categories were applied attach them to the product
-
-      $product->category()->attach($request->category);
+      $this->productService->update($request,$product);
       return redirect('/admin/products');
     }
 

@@ -27,6 +27,20 @@ Route::get('/blog', 'BlogController@index');
 
 Route::get('/blog/{slug}', 'BlogController@post');
 
+Route::get('/cart', 'CartController@show');
+
+Route::get('/cart/add', 'CartController@addItem');
+
+Route::get('/cart/plus/{index}', 'CartController@plus');
+
+Route::get('/cart/minus/{index}', 'CartController@minus');
+
+Route::get('/cart/trash/{index}', 'CartController@trash');
+
+Route::get('/cart/flush', 'CartController@flush');
+
+
+
 
 
 Route::get('/admin', 'AdminController@index');
