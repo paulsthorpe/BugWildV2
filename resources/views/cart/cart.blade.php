@@ -77,15 +77,15 @@
       </div><!-- CART TOTALS-->
       <div class="col-lg-2"></div>
       <div class="col-lg-6">
-      <form action="review.php" method="post">
+      <form action="/review" method="post">
+        {{ csrf_field() }}
       <div class="form-group">
-        <label for="order_instructions">Special Instructions</label>
-          <textarea class="form-control" name="order_instructions" rows="8"
+        <label for="special">Special Instructions</label>
+          <textarea class="form-control" name="special" rows="8"
            placeholder="If any special instructions need to be given for your order, please include them here. This is especially important forany deer hair flies. If I have any questions beyond the scope ofthis message, or if anything remains unclear, I will contact you by email to ensure the order is to your desired specifications."
            style="text-align: left;"></textarea>
           <br></br>
-          <input type="submit" name="submit"
-          value="Save Special Instructions and Review Order" class="btn btn-primary">
+          <button type="submit" class="btn btn-primary">Save Special Instructions and Review Order</button>
       </form>
       </div>
       </div>

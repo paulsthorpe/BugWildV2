@@ -79,5 +79,23 @@ class CartController extends Controller
       return redirect('/cart');
     }
 
+    public function save(Request $request){
+      $special = $request->special;
+      session(['special' => $special]);
+      return redirect('/review');
+    }
+
+    public function review(){
+      $cartTotal = 0;
+      $itemCount = 0;
+      if(!empty(session('items'))){
+        foreach(session('items') as $item){
+          $cartTotal += $item['price_as_config'];
+          $itemCount += $item['quantity'];
+        }
+      }
+      return view('cart.review', compact('cartTotal','itemCount'));
+    }
+
 
 }

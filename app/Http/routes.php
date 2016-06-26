@@ -39,6 +39,14 @@ Route::get('/cart/trash/{index}', 'CartController@trash');
 
 Route::get('/cart/flush', 'CartController@flush');
 
+Route::post('/review', 'CartController@save');
+
+Route::get('/review', 'CartController@review');
+
+Route::post('/payment', 'PaypalController@createOrder');
+
+Route::get('/payment', 'PaypalController@getStatus');
+
 
 
 
