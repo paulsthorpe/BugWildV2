@@ -3,6 +3,7 @@
 namespace App\Services;
 use App\Product;
 use App\ProductSize;
+use Session;
 
 /*
 |--------------------------------------------------------------------------

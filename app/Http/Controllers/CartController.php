@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Product;
 use App\ProductSize;
 use Session;
-use App\Service\CartService;
+use App\Services\CartService;
 
 
 class CartController extends Controller
@@ -59,6 +59,11 @@ class CartController extends Controller
 
     public function trashCart($index){
       Session::forget('items.'.$index);
+      return back();
+    }
+
+    public function flush(){
+      Session::flush();
       return back();
     }
 

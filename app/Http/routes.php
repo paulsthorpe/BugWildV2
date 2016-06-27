@@ -42,6 +42,8 @@ Route::get('/cart/minus/{index}', 'CartController@decrement');
 
 Route::get('/cart/trash/{index}', 'CartController@trashCart');
 
+Route::get('/cart/flush', 'CartController@flush');
+
 Route::post('/review', 'CartController@addSpecialInstructions');
 
 

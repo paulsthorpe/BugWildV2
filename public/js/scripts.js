@@ -6,6 +6,8 @@ item_image_toggle();
 showNav();
 showHomeNav();
 itemImages();
+$('.flash').delay(10000).fadeOut(500);
+
 });
 
 function qty_counter(){

@@ -39,8 +39,6 @@ Flash messages to report errors to customers.
                 <li><a href="/shop/category/{{$category->title}}">{{$category->title}}</a></li>
               @endforeach
             @endif
-            <!-- <li><a href="/shop/featured">Featured</a></li>
-            <li><a href="/shop/sale">On Sale</a></li> -->
           </ul>
       </div>
       <div class="products-container col-lg-8">
@@ -48,7 +46,7 @@ Flash messages to report errors to customers.
           @foreach($products as $product)
             <div class="col-lg-4 col-sm-6" id="item-thumbnail">
               <div class="thumbnail-content-container">
-                <div class="thumbnail-image" style="background-image:url(/images/product_images/{{$product->image1}})">
+                <div class="thumbnail-image" style="background-image:url(/images/product_images/{{$product->image1}});">
                   <!-- <img src="/images/product_images/{{$product->image1}}"> -->
                 </div>
                 <h2>{{$product->title}}</h2>
@@ -64,9 +62,3 @@ Flash messages to report errors to customers.
   </div>
 </body>
 @endsection
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.flash').delay(10000).fadeOut(500);
-  })
-</script>
