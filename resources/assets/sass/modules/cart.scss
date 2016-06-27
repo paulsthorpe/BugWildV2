@@ -1,0 +1,16 @@
+@include tablet {
+  .cart {
+    .container{
+      padding-top: 75px;
+      table {
+        font-size: 1.6em;
+        th {
+          text-align: center;
+        }
+      }
+      label {
+        font-size: 1.3em;
+      }
+    }
+  }
+}

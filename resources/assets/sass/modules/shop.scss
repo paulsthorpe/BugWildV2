@@ -1,37 +1,72 @@
-.shop {
-  position: relative;
-  height: auto;
-  display: block;
 
-  #item-thumbnail {
-    height: 375px;
-    margin: 10px 0;
-    text-align: center;
-    opacity: 0.9;
-    color: rgba(42, 100, 60, 1);
-    border: none;
-    // transition: color 0.5s, opacity 0.2s, border 0.2s, box-shadow: 0.2s;
 
-    .thumbnail-content-container {
-      margin: 0 auto 15px auto;
-      position: relative;
+@include computer {
+  .shop {
+    position: relative;
+    height: auto;
+    display: block;
 
-      .btn-small {
-        font-size: 1.5em;
-        width: 140px;
-        height: 30px;
+    #item-thumbnail {
+      height: 375px;
+      margin: 10px 0;
+      text-align: center;
+      opacity: 0.9;
+      color: rgba(42, 100, 60, 1);
+      border: none;
+      // transition: color 0.5s, opacity 0.2s, border 0.2s, box-shadow: 0.2s;
+
+      .thumbnail-content-container {
+        margin: 0 auto 15px auto;
+        position: relative;
+
+        .btn-small {
+          font-size: 1.5em;
+          width: 140px;
+          height: 30px;
+        }
+
+        .thumbnail-image {
+          display: block;
+          width: 100%;
+          height: 250px;
+          margin: 15px auto;
+          overflow: hidden;
+          position: relative;
+          @include centerbg();
+        }
       }
 
-      .thumbnail-image {
-        display: block;
-        width: 100%;
-        height: 250px;
-        margin: 15px auto;
-        overflow: hidden;
-        position: relative;
-        @include centerbg();
+    }
+  }
+}
+
+@include smallPhone {
+
+  .side-nav {
+    font-size: 2em;
+  }
+
+  .thumbnail-image {
+    width: 75%;
+    margin: 0 auto;
+    display: none;
+  }
+}
+
+@include tablet {
+
+  .shop {
+    .product_categories {
+      .side-nav{
+        font-size: 2em;
       }
     }
-
+    #item-thumbnail {
+      .thumbnail-content-container {
+        .thumbnail-image {
+          width: 80%;
+        }
+      }
+    }
   }
 }

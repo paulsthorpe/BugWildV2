@@ -41,3 +41,36 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+@mixin smallPhone {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 766px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin computer {
+  @media screen and (max-device-width: 3000px){
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen
+    and (min-device-width: 767px)
+    and (max-device-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin tabletLandscape {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1199px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+    @content;
+  }
+}

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<body>
+<body class="cart">
   <div class="container">
     <div class="row">
       <h1>Checkout</h1>
@@ -37,15 +37,6 @@
                 <?php $index++; ?>
               @endforeach
             @endif
-            <tr>
-              <td></td><td></td><td></td>
-              <td></td><td></td><td></td>
-              <td>
-                <a href="/cart/flush" style="color:#fff;"class="btn btn-danger">
-                  Clear Cart
-                </a>
-              </td>
-            </tr>
       </tbody>
       </table>
         </table>
@@ -76,6 +67,16 @@
       </div><!-- CART TOTALS-->
       <div class="col-lg-2"></div>
       <div class="col-lg-6">
+        <br></br>
+        <div class="row">
+          <a href="/cart/flush"
+          style="color:#fff;"
+          class="btn btn-danger"
+          onclick="return confirm('Are you sure you want to empty your cart?')">
+            Clear Cart
+          </a>
+        </div>
+        <br></br>
       <form action="/review" method="post">
         {{ csrf_field() }}
       <div class="form-group">

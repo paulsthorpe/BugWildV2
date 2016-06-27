@@ -72,7 +72,7 @@ BugWildFlyCo.
               </div>
               <div class="row">
                 <div class="add col-lg-12">
-                  <h3>Price Each: $ {{$product->price/100}}</h3>
+                  <h3>Price Each: $ {{number_format(($product->price /100), 2, '.', ' ')}}</h3>
                   <button class="btn-small" type="submit">Add to Cart</button>
                 </form>
                 </div>
