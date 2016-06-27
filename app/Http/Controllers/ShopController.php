@@ -31,6 +31,7 @@ class ShopController extends Controller
     public function item($slug)
     {
         $product = Product::with('colors', 'sizes')->where('slug', $slug)->first();
+        // dd($product);
         $new_products = Product::orderBy('id', 'DESC')->take(3);
         $categories = ProductCategory::all();
         return view('shop.product', compact('product', 'categories', 'new_products'));

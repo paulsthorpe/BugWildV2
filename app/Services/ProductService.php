@@ -55,13 +55,16 @@ class ProductService
         $product->price = $request->price;
         //store image name to pass to image field
         $counter = 1;
+        // dd($request->file('image'));
         foreach ($request->file('image') as $image) {
+          if($image){
             $imageName = $image->getClientOriginalName();
             //move imave to directory
             $file = $image->move(public_path() . "/images/product_images/", $imageName);
             //save image name
             $product->{'image' . $counter} = $imageName;
             $counter++;
+          }
         }
 
         //create new product
