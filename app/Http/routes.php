@@ -49,9 +49,9 @@ Route::post('/review', 'CartController@addSpecialInstructions');
 
 
 
-Route::post('/paypal', 'PaypalController@createOrder');
+Route::post('/payment', 'PaypalController@createOrder');
 
-Route::get('/paypal', 'PaypalController@getStatus');
+Route::get('/payment', 'PaypalController@getStatus');
 
 
 
