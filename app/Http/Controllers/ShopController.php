@@ -14,24 +14,37 @@ class ShopController extends Controller
 {
 
     public function index(){
-      $products = Product::all();
+      $products = Product::orderBy('id','DESC')->paginate(12);
       $categories = ProductCategory::all();
       return view('shop.shop', compact('products', 'categories'));
     }
 
     public function item($slug){
-      $product = Product::with('colors' , 'sizes')->where('slug',$slug)->firstOrFail();
+      $product = Product::with('colors' , 'sizes')->where('slug',$slug)->first();
       $new_products = Product::orderBy('id','DESC')->take(3);
       $categories = ProductCategory::all();
       return view('shop.product', compact('product', 'categories', 'new_products'));
     }
 
-    // public function featured(){
-    //
-    // }
-    //
-    // public function onSale(){
-    //
-    // }
+    public function featured(){
+      $products = Product::where('featured','1')->paginate(12);
+      $page_title = 'Featured Products';
+      $categories = ProductCategory::all();
+      return view('shop.shop', compact('products','page_title','categories'));
+    }
+
+    public function onSale(){
+      $products = Product::where('on_sale','1')->paginate(12);
+      $page_title = 'Products On Sale';
+      $categories = ProductCategory::all();
+      return view('shop.shop', compact('products','page_title','categories'));
+    }
+
+    public function category($slug){
+      $category = ProductCategory::where('slug',$slug)->first();
+      $products = Product::where('category_id', $category->id)->get();
+      $categories = ProductCategory::all();
+      return view('shop.shop', compact('products', 'categories'));
+    }
 
 }

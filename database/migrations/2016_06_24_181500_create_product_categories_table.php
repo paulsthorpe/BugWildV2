@@ -16,6 +16,7 @@ class CreateProductCategoriesTable extends Migration
         Schema::create('product_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('slug');
             $table->timestamps();
         });
 
@@ -35,5 +36,6 @@ class CreateProductCategoriesTable extends Migration
     public function down()
     {
         Schema::drop('product_categories');
+        Schema::drop('product_product_category');
     }
 }

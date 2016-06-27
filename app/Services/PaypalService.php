@@ -82,10 +82,13 @@ class PaypalService {
 
 
    if ($result->getState() == 'approved') { // payment made
-     $this->persistOrder($json);
+     $redir = $this->persistOrder($json);
    } else {
-     dd('failed');
+     Session::flush();
+     return 0;
    }
+
+   return $redir;
 
   }
 
@@ -142,11 +145,21 @@ class PaypalService {
    $this->itemList->setItems($this->items);
  }
 
+
+
+
+
+
  public function redirectUrls(){
    $this->redirectUrls = new RedirectUrls();
    $this->redirectUrls->setReturnUrl(url('/payment'))
         ->setCancelUrl(url('/payment'));
  }
+
+
+
+
+
 
  public function createPayment(){
    $this->payment = new Payment();
@@ -155,6 +168,10 @@ class PaypalService {
        ->setRedirectUrls($this->redirectUrls)
        ->setTransactions(array($this->transaction));
  }
+
+
+
+
 
  public function persistOrder($json){
    $order = new Order;
@@ -185,6 +202,9 @@ class PaypalService {
      $product->save();
      $order->items()->save($product);
    }
+
+   Session::flush();
+   return 1;
 
  }
 

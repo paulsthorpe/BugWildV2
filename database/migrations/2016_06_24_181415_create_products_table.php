@@ -17,6 +17,9 @@ class CreateProductsTable extends Migration
           $table->string('title');
           $table->string('slug');
           $table->integer('price');
+          $table->integer('category_id');
+          $table->boolean('on_sale');
+          $table->boolean('featured');
           $table->string('image1');
           $table->string('image2');
           $table->string('image3');
@@ -47,6 +50,7 @@ class CreateProductsTable extends Migration
             $table->integer('product_id')->unsigned()->index();
             $table->timestamps();
         });
+
     }
 
     /**
@@ -57,5 +61,9 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::drop('products');
+        Schema::drop('product_product_color');
+        Schema::drop('product_product_size');
+        Schema::drop('featured_product_product');
+        Schema::drop('on_sale_product');
     }
 }

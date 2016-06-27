@@ -5,7 +5,7 @@
 
   #item-thumbnail {
     height: 375px;
-    margin: 10px 15px;
+    margin: 10px 0;
     text-align: center;
     opacity: 0.9;
     color: rgba(42, 100, 60, 1);
@@ -14,6 +14,7 @@
 
     .thumbnail-content-container {
       margin: 0 auto 15px auto;
+      position: relative;
 
       .btn-small {
         font-size: 1.5em;
@@ -24,13 +25,17 @@
       .thumbnail-image {
         display: block;
         width: 100%;
+        height: 70%;
         margin: 15px auto;
         overflow: hidden;
+        position: relative;
+        @include centerbg();
 
         img {
           display: block;
           width: 100%;
-          height: 100%;
+          height: 80px;
+
           margin: 0 auto;
           transform: translateY(-20px);
         }

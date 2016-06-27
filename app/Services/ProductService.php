@@ -55,7 +55,7 @@ class ProductService {
     $product->sizes()->attach($request->sizes);
   }
 
-  public function update($request,$product){
+  public function patch($request,$product){
     //assign data
     $product->title = $request->title;
     $product->description = $request->description;

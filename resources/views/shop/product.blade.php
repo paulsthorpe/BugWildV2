@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
 @section('title')
-BugWild Fly Co. {{$product->title}}
+@if(!empty($page_title))
+BugWildFlyCo. {{$page_title}}
+@else
+BugWildFlyCo.
+@endif
 @endsection
 
 

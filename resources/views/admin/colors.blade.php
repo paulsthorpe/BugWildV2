@@ -8,7 +8,7 @@
     Product Colors
     </h1>
       <div class="col-md-4">
-        <form action="/admin/product_colors" method="post">
+        <form action="/admin/product_color" method="post">
           {{ csrf_field() }}
           <div class="form-group">
             <label for="color-title">Color</label>
@@ -34,9 +34,10 @@
               <td>{{$color->id}}</td>
               <td>{{$color->title}}</td>
               <td>
-                <form action="/admin/product_colors/{{$color->id}}" method="post">
+                <form action="/admin/product_color" method="post">
                   {{ method_field('DELETE') }}
                   {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{$color->id}}">
                   <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
               </td>
@@ -48,13 +49,13 @@
     </div>
   </div>
 
-  <form action="/admin/product_colors" method="post">
+  <form action="/admin/product_color" method="post">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
   <h1>Edit colors</h1>
   <div class="col-md-4">
     <h3>Old Color Title</h3>
-    <select name="id" id="" class="form-control">
+    <select name="id" class="form-control">
       @if(!empty($colors))
         @foreach($colors as $color)
           <option value="{{$color->id}}">{{$color->title}}</option>;

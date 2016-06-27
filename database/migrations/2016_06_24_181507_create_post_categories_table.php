@@ -33,5 +33,6 @@ class CreatePostCategoriesTable extends Migration
     public function down()
     {
         Schema::drop('post_categories');
+        Schema::drop('post_post_category');
     }
 }

@@ -8,7 +8,7 @@
     Product Sizes
     </h1>
       <div class="col-md-4">
-        <form action="/admin/product_sizes" method="post">
+        <form action="/admin/product_size" method="post">
           {{ csrf_field() }}
           <div class="form-group">
             <label for="size-title">Size</label>
@@ -40,9 +40,10 @@
               <td>{{$size->title}}</td>
               <td>{{number_format(($size->price /100), 2, '.', ' ')}}</td>
               <td>
-                <form action="/admin/product_sizes/{{$size->id}}" method="post">
+                <form action="/admin/product_size" method="post">
                   {{ method_field('DELETE') }}
                   {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{$size->id}}">
                   <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
               </td>
@@ -55,7 +56,7 @@
   </div>
 
   <div class="row">
-    <form action="/admin/product_sizes" method="post">
+    <form action="/admin/product_size" method="post">
       {{ csrf_field() }}
       {{ method_field('PATCH') }}
     <h1>Edit Sizes</h1>

@@ -29,9 +29,10 @@
                 </a>
               </td>
               <td>
-                <form action="/admin/post/{{$post->id}}" method="post">
+                <form action="/admin/post" method="post">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
+                  <input type="hidden" name="id" value="{{$post->id}}">
                   <button class="btn btn-danger"
                   onclick='return confirm( "Are you sure you want to delete" )'>
                     Delete this Product

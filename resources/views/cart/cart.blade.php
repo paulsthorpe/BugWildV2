@@ -37,7 +37,6 @@
                 <?php $index++; ?>
               @endforeach
             @endif
-            <tr><td></td></tr>
             <tr>
               <td></td><td></td><td></td>
               <td></td><td></td><td></td>

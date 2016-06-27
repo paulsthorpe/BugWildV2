@@ -33,6 +33,14 @@
               <tr>
               <td>{{$category->id}}</td>
               <td>{{$category->title}}</td>
+              <td>
+                <form action="/admin/post_category" method="post">
+                  {{ method_field('DELETE') }}
+                  {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{$category->id}}">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
               </tr>
             @endforeach
           @endif

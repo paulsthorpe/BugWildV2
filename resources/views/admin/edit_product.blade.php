@@ -8,9 +8,10 @@
     <h1 class="page-header">Edit Product</h1>
 
   </div>
-    <form action="/admin/product/{{$product->id}}" method="post" enctype="multipart/form-data">
+    <form action="/admin/product" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
       {{ method_field('PATCH') }}
+      <input type="hidden" name="product_to_edit" value="{{$product->id}}">
       <div class="col-md-8">
         <div class="form-group">
           <label for="product-title">Product Title </label>

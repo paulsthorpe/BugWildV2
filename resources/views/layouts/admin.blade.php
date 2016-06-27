@@ -63,19 +63,19 @@
                 <a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="/admin/products"><i class="fa fa-fw fa-table"></i>Products</a>
+                <a href="/admin/product"><i class="fa fa-fw fa-table"></i>Products</a>
             </li>
             <li>
                 <a href="/admin/add_product"><i class="fa fa-fw fa-plus"></i>Add Product</a>
             </li>
             <li>
-                <a href="/admin/product_categories"><i class="fa fa-fw fa-list-ol"></i>Product Categories</a>
+                <a href="/admin/product_category"><i class="fa fa-fw fa-list-ol"></i>Product Categories</a>
             </li>
             <li>
-                <a href="/admin/product_colors"><i class="fa fa-fw fa-paint-brush"></i>Product Colors</a>
+                <a href="/admin/product_color"><i class="fa fa-fw fa-paint-brush"></i>Product Colors</a>
             </li>
             <li>
-                <a href="/admin/product_sizes"><i class="fa fa-fw fa-arrows-alt"></i>Product Sizes</a>
+                <a href="/admin/product_size"><i class="fa fa-fw fa-arrows-alt"></i>Product Sizes</a>
             </li>
             <li>
                 <a href="/admin/posts"><i class="fa fa-fw fa-table"></i>Blog Posts</a>
@@ -84,7 +84,7 @@
                 <a href="/admin/add_post"><i class="fa fa-fw fa-plus"></i>Add Blog Post</a>
             </li>
             <li>
-                <a href="/admin/post_categories"><i class="fa fa-fw fa-list-ol"></i>Blog Categories</a>
+                <a href="/admin/post_category"><i class="fa fa-fw fa-list-ol"></i>Blog Categories</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-fw fa-users"></i>Users</a>

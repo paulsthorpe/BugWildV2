@@ -7,7 +7,7 @@
   Product Categories
   </h1>
     <div class="col-md-4">
-      <form action="/admin/add_product_category" method="post">
+      <form action="/admin/product_category" method="post">
         {{ csrf_field() }}
         <div class="form-group">
           <label for="category-title">Title</label>
@@ -32,19 +32,27 @@
             <tr>
             <td>{{$category->id}}</td>
             <td>{{$category->title}}</td>
+            <td>
+              <form action="/admin/product_category" method="post">
+                {{ method_field('DELETE') }}
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{$category->id}}">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
             </tr>
           @endforeach
         @endif
       </tbody>
     </table>
   </div>
-  <form action="/admin/edit_product_category" method="post">
+  <form action="/admin/product_category" method="post">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
   <h1>Edit Categories</h1>
   <div class="col-md-4">
     <h3>Old Category Title</h3>
-    <select name="category_select" id="" class="form-control">
+    <select name="id" id="" class="form-control">
       @if(!empty($categories))
         @foreach($categories as $category)
           <option value="{{$category->id}}">{{$category->title}}</option>;
