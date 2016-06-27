@@ -60,8 +60,12 @@
                         </tr>
                         <tr class="order-total">
                             <th>Order Total</th>
-                            <td><strong><span
-                                            class="amount">$ {{number_format((($cartTotal+700) /100), 2, '.', ' ')}}</span></strong>
+                            <td>
+                              <strong>
+                                <span class="amount">
+                                  $ {{number_format((($cartTotal+700) /100), 2, '.', ' ')}}
+                                </span>
+                              </strong>
                             </td>
                         </tr>
                         </tbody>
@@ -71,6 +75,7 @@
                 <div class="col-lg-6">
                     <br></br>
                     <div class="row">
+                      @if(!empty(Session('items')))
                         <a href="/cart/flush"
                            style="color:#fff;"
                            class="btn btn-danger"
@@ -82,6 +87,7 @@
                     <form action="/review" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">
+
                             <label for="special">Special Instructions</label>
           <textarea class="form-control" name="special" rows="8"
                     placeholder="If any special instructions need to be given for your order, please include them here. This is especially important forany deer hair flies. If I have any questions beyond the scope ofthis message, or if anything remains unclear, I will contact you by email to ensure the order is to your desired specifications."
@@ -89,6 +95,7 @@
                             <br></br>
                             <button type="submit" class="btn btn-primary">Save Special Instructions and Review Order
                             </button>
+                          @endif
                     </form>
                 </div>
             </div>

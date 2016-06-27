@@ -11,16 +11,7 @@
     <!--
 Flash messages to report errors to customers.
  -->
-    @if(Session::has('failed'))
-        <div class="alert alert-danger flash"
-             style="postion:absolute;z-index:1000;top:0;bottom:0;width:100vw;">{{ Session::get('failed') }}</div>
-    @elseif(Session::has('paypal_failed'))
-        <div class="alert alert-danger flash"
-             style="postion:absolute;z-index:1000;top:0;bottom:0;width:100vw;">{{ Session::get('paypal_failed') }}</div>
-    @elseif(Session::has('success'))
-        <div class="alert alert-success flash"
-             style="postion:absolute;z-index:1000;top:0;bottom:0;width:100vw;">{{ Session::get('success') }}</div>
-    @endif
+
     <body class="shop">
     <h1 style="font-size: 5em; margin-top: 75px;">
         @if(!empty($page_title))

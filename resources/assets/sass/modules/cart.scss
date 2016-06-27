@@ -1,3 +1,31 @@
+@include computer {
+  .cart {
+    .container {
+      padding-top: 75px;
+      table {
+        font-size: 1.6em;
+        th {
+          text-align: center;
+        }
+        tbody {
+          tr {
+            td {
+              font-size: 1.3em;
+              a {
+                padding: 8px;
+              }
+            }
+          }
+        }
+      }
+      label {
+        font-size: 1.3em;
+      }
+    }
+  }
+}
+
+
 @include tablet {
   .cart {
     .container {

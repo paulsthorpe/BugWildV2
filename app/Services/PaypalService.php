@@ -64,10 +64,15 @@ class PaypalService
     private $amount;
     private $payment;
     private $redirectUrls;
+    //these properties are to store in session after payment has clear to
+    //display confirmation to customer
+    private $orderId;
+    private $specialInstructions;
+    private $paypalTrans;
 
     /**
      * PaypalService constructor.
-     * this is used for authentication in paypal's api
+     * apicontext is used for authentication in paypal's api
      * uses env data and config found in config folder
      */
     public function __construct()
@@ -265,16 +270,18 @@ class PaypalService
         $order->paypal_total = $json->transactions[0]->amount->total;
         $order->paypal_status = $json->state;
         $order->trans_id = $json->transactions[0]->related_resources[0]->sale->id;
+        $this->paypalTrans = $json->transactions[0]->related_resources[0]->sale->id;
         //iff special instructions were provided, save them on the order object
         if (session('special')) {
             $order->special = session('special');
+            $this->specialInstructions = session('special');
         }
         $order->shipped = 0;
         $order->total = self::convertCurrency($orderTotal);
 
         //save the order
         $order->save();
-
+        $this->orderId = $order->id;
 
         //save each individual configured item to the db, and then create relationship
         //with the associated order
@@ -291,6 +298,10 @@ class PaypalService
 
         //remove session data
         Session::flush();
+        Session::put('orderId', $this->orderId);
+        Session::put('total', $orderTotal);
+        Session::put('special', $this->specialInstructions);
+        Session::put('transId', $this->paypalTrans);
 
         //return 1 for order success
         return 1;

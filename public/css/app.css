@@ -6204,6 +6204,20 @@ button.close {
       .item-page .item-display .item-details .option-selectors .color-selector {
         margin: 0; } }
 
+@media screen and (max-device-width: 3000px) {
+  .cart .container {
+    padding-top: 75px; }
+    .cart .container table {
+      font-size: 1.6em; }
+      .cart .container table th {
+        text-align: center; }
+      .cart .container table tbody tr td {
+        font-size: 1.3em; }
+        .cart .container table tbody tr td a {
+          padding: 8px; }
+    .cart .container label {
+      font-size: 1.3em; } }
+
 @media only screen and (min-device-width: 767px) and (max-device-width: 1199px) {
   .cart .container {
     padding-top: 75px; }

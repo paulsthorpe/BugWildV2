@@ -70,9 +70,11 @@
                 @endif
                 <form action="/payment" method="post">
                     {{ csrf_field() }}
+                    @if(!empty(Session('items')))
                     <input type="image"
                            src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout_SM.gif"
                            alt="PayPal - The safer, easier way to pay online">
+                    @endif
                 </form>
             </div>
         </div>  <!-- row -->

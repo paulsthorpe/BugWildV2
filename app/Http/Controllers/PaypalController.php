@@ -53,7 +53,7 @@ class PaypalController extends Controller
             Session::flash('success', 'Order Successful, please allow up to two weeks for your order to be shipped.');
         }
 
-        return redirect('/shop');
+        return view('cart.confirm');
     }
 
 }
