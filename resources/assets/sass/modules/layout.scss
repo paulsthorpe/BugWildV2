@@ -25,17 +25,18 @@
         max-height: 250px;
       }
 
-    }//logo
+    }
+    //logo
 
     .drop-button {
       display: none;
     }
 
     nav {
-    position: absolute;
-    top: 80px;
-    width: 100%;
-    height: 250px;
+      position: absolute;
+      top: 80px;
+      width: 100%;
+      height: 250px;
 
       ul {
         position: relative;
@@ -55,14 +56,14 @@
 
           a {
             &::before,
-            &::after{
+            &::after {
               display: inline-block;
               opacity: 0;
               -webkit-transition: all 0.5s;
               -moz-transition: all 0.5s;
               transition: all 0.5s;
             }
-            &::before{
+            &::before {
               margin-right: 5px;
               content: '[';
               font-weight: bolder;
@@ -70,7 +71,7 @@
               -moz-transform: translateX(20px);
               transform: translateX(20px);
             }
-            &::after{
+            &::after {
               margin-left: 5px;
               content: ']';
               font-weight: bolder;
@@ -91,13 +92,17 @@
 
           }
 
-        }//li
+        }
+        //li
 
-      }//ul
+      }
+      //ul
 
-    }//nav
+    }
+    //nav
 
-  }//main-nav
+  }
+  //main-nav
 
   footer {
     position: relative;
@@ -136,19 +141,21 @@
           i {
             font-size: 1.8em;
             padding: 10px;
-          }//i
-        }//a
-      }//div
+          }
+          //i
+        }
+        //a
+      }
+      //div
       .col-lg-12 {
         p {
           margin-bottom: 2px;
         }
       }
-    }//.footer-container
+    }
+    //.footer-container
   }
 }
-
-
 
 @include smallPhone {
   .main-nav {
@@ -161,7 +168,8 @@
       width: 50%;
       left: 50%;
       margin-left: -25%;
-    }//logo
+    }
+    //logo
     .drop-button {
       display: inline;
       position: absolute;
@@ -177,7 +185,7 @@
       background-color: #fff;
 
       i {
-        color:darkorange;
+        color: darkorange;
       }
     }
     nav {
@@ -201,8 +209,8 @@
         -webkit-transition: max-height 1s;
         transition: max-height 0.5s;
         display: block;
-        &.show-nav{
-          max-height:400px;
+        &.show-nav {
+          max-height: 400px;
         }
 
         .menu-items {

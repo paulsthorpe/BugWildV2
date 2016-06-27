@@ -1,6 +1,6 @@
 @include tablet {
   .cart {
-    .container{
+    .container {
       padding-top: 75px;
       table {
         font-size: 1.6em;
@@ -14,9 +14,10 @@
     }
   }
 }
+
 @include smallPhone {
   .cart {
-    .container{
+    .container {
       width: 90%;
       padding-top: 75px;
       table {

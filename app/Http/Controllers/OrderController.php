@@ -12,28 +12,41 @@ class OrderController extends Controller
 {
 
 
-
-  public function index(){
-    $orders = Order::orderBy('id','DESC')->paginate(50);
-    return view('admin.orders', compact('orders'));
-  }
-
-  public function get($id){
-    $order = Order::with('items')->where('id',$id)->firstOrFail();
-    return view('admin.order', compact('order'));
-  }
-
-  public function patch(Request $request){
-    $order = Order::find($request->id);
-    if($order->shipped === 0){
-      $order->shipped = 1;
-    } elseif($order->shipped === 1){
-      $order->shipped = 0;
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
+        $orders = Order::orderBy('id', 'DESC')->paginate(50);
+        return view('admin.orders', compact('orders'));
     }
-    $order->save();
-    return back();
-  }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function get($id)
+    {
+        $order = Order::with('items')->where('id', $id)->firstOrFail();
+        return view('admin.order', compact('order'));
+    }
+
+    /**
+     * change shipment status
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function patch(Request $request)
+    {
+        $order = Order::find($request->id);
+        if ($order->shipped === 0) {
+            $order->shipped = 1;
+        } elseif ($order->shipped === 1) {
+            $order->shipped = 0;
+        }
+        $order->save();
+        return back();
+    }
 
 
 }

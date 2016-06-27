@@ -1,41 +1,37 @@
 .admin-body {
   #page-wrapper {
-  background-color: #F1F1F1 !important;
-}
+    background-color: #F1F1F1 !important;
+  }
 
+  .product_image {
 
+    width: 200px !important;
+    height: 100px !important;
 
-.product_image {
+  }
 
-width: 200px !important;
-height: 100px !important;
+  #admin_sidebar .form-group {
 
+    background-color: #fff;
+    padding: 8px;
 
-}
+  }
 
-#admin_sidebar .form-group {
+  #admin_sidebar .form-group hr {
 
-background-color: #fff;
-padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
-}
+  }
 
-#admin_sidebar .form-group hr {
+  #admin_sidebar .btn {
 
-margin-top: 10px;
-margin-bottom: 10px;
+    width: 49%;
 
+  }
 
-}
-
-#admin_sidebar .btn{
-
-width: 49%;
-
-}
-
-td img {
-  width: 62px;
-  height: auto;
-}
+  td img {
+    width: 62px;
+    height: auto;
+  }
 }

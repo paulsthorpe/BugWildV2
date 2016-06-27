@@ -21,9 +21,9 @@ Route::get('/shop/{slug}', 'ShopController@item');
 
 Route::get('/shop/category/{slug}', 'ShopController@category');
 
-Route::get('/shop/featured', 'ShopController@featured');
+Route::get('/featured', 'ShopController@featured');
 
-Route::get('/shop/sale', 'ShopController@onSale');
+Route::get('/sale', 'ShopController@sale');
 
 
 
@@ -63,6 +63,8 @@ Route::get('/admin/product', 'ProductController@index');
 Route::get('/admin/add_product', 'ProductController@add');
 
 Route::get('/admin/edit_product/{product}', 'ProductController@edit');
+
+Route::post('/admin/products_by_category', 'ProductController@byCategory');
 
 Route::post('/admin/product', 'ProductController@save');
 
@@ -141,6 +143,9 @@ Route::get('/admin/order/{id}', 'OrderController@get');
 
 Route::patch('/admin/order', 'OrderController@patch');
 
+Route::patch('/admin/featured', 'ProductController@featured');
+
+Route::patch('/admin/sale', 'ProductController@sale');
 
 
 

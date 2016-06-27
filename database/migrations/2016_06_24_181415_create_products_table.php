@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
           $table->string('title');
           $table->string('slug');
           $table->integer('price');
-          $table->integer('category_id');
+          $table->integer('category_id')->unsigned()->index();
           $table->boolean('on_sale');
           $table->boolean('featured');
           $table->string('image1');

@@ -6034,6 +6034,8 @@ button.close {
     position: relative;
     height: auto;
     display: block; }
+    .shop .side-nav {
+      font-size: 1.6em; }
     .shop #item-thumbnail {
       height: 375px;
       margin: 10px 0;

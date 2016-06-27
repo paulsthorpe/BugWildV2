@@ -1,11 +1,12 @@
-
-
 @include computer {
   .shop {
     position: relative;
     height: auto;
     display: block;
 
+    .side-nav {
+      font-size: 1.6em;
+    }
     #item-thumbnail {
       height: 375px;
       margin: 10px 0;
@@ -57,7 +58,7 @@
 
   .shop {
     .product_categories {
-      .side-nav{
+      .side-nav {
         font-size: 2em;
       }
     }

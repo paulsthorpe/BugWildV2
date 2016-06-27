@@ -9,35 +9,40 @@
 @import "modules/cart.scss";
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-    font-size: 0.95em;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 0.95em;
 }
+
 a,
 a:hover,
 a:visited {
-    color: rgba(227, 137, 23, 1);
-    text-decoration: none;
+  color: rgba(227, 137, 23, 1);
+  text-decoration: none;
 }
+
 h1 {
-    text-shadow: 1px 1px #ccc, 2px 2px #ccc, 3px 3px #ccc;
+  text-shadow: 1px 1px #ccc, 2px 2px #ccc, 3px 3px #ccc;
 }
+
 li {
   list-style: none;
 }
+
 .btn-small {
-    display: inline-block;
-    width: 160px;
-    text-decoration: none;
-    border-radius: 20px;
-    background-color: rgba(227, 137, 23, 1);
-    color: #fff;
-    transition: border .2s, background-color .2s, color .2s;
+  display: inline-block;
+  width: 160px;
+  text-decoration: none;
+  border-radius: 20px;
+  background-color: rgba(227, 137, 23, 1);
+  color: #fff;
+  transition: border .2s, background-color .2s, color .2s;
 }
+
 .btn-small:hover {
-    background-color: rgba(255, 255, 255, 0);
-    color: rgba(227, 137, 23, 1);
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(227, 137, 23, 1);
 }

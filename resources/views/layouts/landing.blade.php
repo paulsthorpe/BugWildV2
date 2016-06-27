@@ -12,37 +12,41 @@
     <link href='https://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>
 </head>
 <body class="homepage">
-  <div class="landing">
+<div class="landing">
     <div class="logo">
-      <img src="images/design_images/bw.png" alt="LOGO" >
+        <img src="images/design_images/bw.png" alt="LOGO">
     </div>
     <!-- <img class="background" src="images/design_images/river.jpg" alt=""> -->
     <div class="background">
-      <img src="images/design_images/river.jpg" alt="">
-      <div class="color"></div>
+        <img src="images/design_images/river.jpg" alt="">
+        <div class="color"></div>
     </div>
     <nav>
-      <ul id="home-nav">
-        <li><a class="nav-tags" href="/">Home</a></li>
-        <li><a class="nav-tags" href="/shop">Shop</a></li>
-        <li></li>
-        <li></li>
-        <li><a class="nav-tags" href="/cart">Cart</a></li>
-        <li><a class="nav-tags" href="/blog">Blog</a></li>
-      </ul>
+        <ul id="home-nav">
+            <li><a class="nav-tags" href="/">Home</a></li>
+            <li><a class="nav-tags" href="/shop">Shop</a></li>
+            <li></li>
+            <li></li>
+            <li><a class="nav-tags" href="/cart">Cart</a></li>
+            <li><a class="nav-tags" href="/blog">Blog</a></li>
+        </ul>
     </nav>
     <div class="logo-caption">
-      <h1 class="home-header">Custom Flies, Tied To Order From</h1>
-      <h1 class="home-header">BugWild Fly Co.</h1>
-      <a href="/about"><button id="learn-more" class="btn-large">
-      Learn More...
-      </button></a>
-      <a href="/shop"><button id="shop" class="btn-large">Shop</button></a>
+        <h1 class="home-header">Custom Flies, Tied To Order From</h1>
+        <h1 class="home-header">BugWild Fly Co.</h1>
+        <a href="/about">
+            <button id="learn-more" class="btn-large">
+                Learn More...
+            </button>
+        </a>
+        <a href="/shop">
+            <button id="shop" class="btn-large">Shop</button>
+        </a>
     </div>
     <div class="top">
-      <button class="nav-button">
-        <i class="fa fa-bars"></i>
-      </button>
+        <button class="nav-button">
+            <i class="fa fa-bars"></i>
+        </button>
     </div>
 </div>
 </body>

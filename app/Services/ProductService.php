@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Services;
+
 use App\Product;
+use App\ProductCategory;
 
 
 /*
@@ -9,77 +11,101 @@ use App\Product;
 | ProductService Class
 |--------------------------------------------------------------------------
 |
-| Provides useful static functions to use throught the appliction to assist in
-| storing, sorting and displaying product record data
+| Class contains methods to facilitate actions required by cart
+| index()
+| save()
+| patch()
 |
 |
 */
 
-class ProductService {
 
-  public function index(){
-    $products = Product::with('category')->orderBy('id','DESC')->get();
-    foreach($products as $product){
-      foreach($product->category as $category){
-        $product->cat = $category->title;
-      }
-    }
-    return $products;
-  }
+/**
+ * Class ProductService
+ * @package App\Services
+ */
+class ProductService
+{
 
-  public function save($request){
-    //instantiate new product
-    $product = new product;
-    //assign data
-    $product->title = $request->title;
-    $product->description = $request->description;
-    $product->slug = str_slug($product->title);
-    $product->price = $request->price;
-    //store image name to pass to image field
-    $counter = 1;
-    foreach ($request->file('image') as $image) {
-      $imageName = $image->getClientOriginalName();
-      //move imave to directory
-      $file = $image->move(public_path()."/images/product_images/", $imageName);
-      //save image name
-      $product->{'image'.$counter} = $imageName;
-      $counter++;
+    /**
+     *
+     * @return mixed
+     * get all products in descending order by id,
+     * return to controller
+     */
+    public function index()
+    {
+        $products = Product::orderBy('category_id', 'DESC')->get();
+        return $products;
     }
 
-    //create new product
-    $product->save();
-    //if categories were applied attach them to the product
+    /**
+     * persist product to database
+     * @param $request
+     *
+     */
+    public function save($request)
+    {
+        //instantiate new product
+        $product = new product;
+        //assign data
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->slug = str_slug($product->title);
+        $product->price = $request->price;
+        //store image name to pass to image field
+        $counter = 1;
+        foreach ($request->file('image') as $image) {
+            $imageName = $image->getClientOriginalName();
+            //move imave to directory
+            $file = $image->move(public_path() . "/images/product_images/", $imageName);
+            //save image name
+            $product->{'image' . $counter} = $imageName;
+            $counter++;
+        }
 
-    $product->category()->attach($request->category);
-    $product->colors()->attach($request->colors);
-    $product->sizes()->attach($request->sizes);
-  }
-
-  public function patch($request,$product){
-    //assign data
-    $product->title = $request->title;
-    $product->description = $request->description;
-    $product->slug = str_slug($product->title);
-    $product->price = $request->price;
-    //store image name to pass to image field
-    if(!empty($request->file)){
-      $counter = 1;
-      foreach ($request->file('image') as $image) {
-        $imageName = $image->getClientOriginalName();
-        //move imave to directory
-        $file = $image->move(public_path()."/images/product_images/", $imageName);
-        //save image name
-        $product->{'image'.$counter} = $imageName;
-        $counter++;
-      }
+        //create new product
+        $product->save();
+        //if categories were applied attach them to the product
+        $category = ProductCategory::find($request->category);
+        $category->products()->save($product);
+        $product->colors()->attach($request->colors);
+        $product->sizes()->attach($request->sizes);
     }
-    //create new product
-    $product->save();
-    //if categories were applied attach them to the product
-    $product->colors()->attach($request->colors);
-    $product->sizes()->attach($request->sizes);
-    $product->category()->attach($request->category);
-  }
+
+    /**
+     *
+     * update product from patch request
+     * @param $request
+     * @param $product
+     */
+    public function patch($request, $product)
+    {
+        //assign data
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->slug = str_slug($product->title);
+        $product->price = $request->price;
+        //store image name to pass to image field
+        if (!empty($request->file)) {
+            $counter = 1;
+            foreach ($request->file('image') as $image) {
+                $imageName = $image->getClientOriginalName();
+                //move imave to directory
+                $file = $image->move(public_path() . "/images/product_images/", $imageName);
+                //save image name
+                $product->{'image' . $counter} = $imageName;
+                $counter++;
+            }
+        }
+        //create new product
+        $product->save();
+        //if categories were applied attach them to the product
+        $product->colors()->attach($request->colors);
+        $product->sizes()->attach($request->sizes);
+        $category = ProductCategory::find($request->category);
+        $category->products()->save($product);
+    }
 
 
 } //end PostService class

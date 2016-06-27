@@ -10,29 +10,48 @@ use App\ProductCategory;
 class ProductCategoriesController extends Controller
 {
 
-  public function index(){
-    $categories = ProductCategory::all();
-    return view('admin.product_categories', compact('categories'));
-  }
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
+        $categories = ProductCategory::all();
+        return view('admin.product_categories', compact('categories'));
+    }
 
-  public function save(Request $request){
-    $category = new ProductCategory;
-    $category->title = $request->title;
-    $category->slug = str_slug($category->title);
-    $category->save();
-    return back();
-  }
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function save(Request $request)
+    {
+        $category = new ProductCategory;
+        $category->title = $request->title;
+        $category->slug = str_slug($category->title);
+        $category->save();
+        return back();
+    }
 
-  public function patch(Request $request){
-    $category = ProductCategory::find($request->id);
-    $category->title = $request->title;
-    $category->save();
-    return back();
-  }
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function patch(Request $request)
+    {
+        $category = ProductCategory::find($request->id);
+        $category->title = $request->title;
+        $category->save();
+        return back();
+    }
 
-  public function destroy(Request $request){
-    $category = ProductCategory::find($request->id);
-    $category->delete();
-    return back();
-  }
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Request $request)
+    {
+        $category = ProductCategory::find($request->id);
+        $category->delete();
+        return back();
+    }
 }
