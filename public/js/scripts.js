@@ -6,7 +6,12 @@ item_image_toggle();
 showNav();
 showHomeNav();
 itemImages();
+
 $('.flash').delay(10000).fadeOut(500);
+
+$('.drop-button').on('click', function(){
+  $(this).toggleClass('show-nav');
+});
 
 });
 

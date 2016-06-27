@@ -17,11 +17,10 @@
       <i class="fa fa-bars"></i>
       </button>
   <nav>
-  <ul id="menu">
+  <ul id="menu" class="">
     <li class="menu-items"><a href="/">Home</a></li>
     <li class="menu-items"><a href="/shop">Shop</a></li>
     <li></li>
-    
     <li class="menu-items"><a href="/cart">Cart</a></li>
     <li class="menu-items"><a href="/blog">Blog</a></li>
   </ul>

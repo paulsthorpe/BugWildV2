@@ -6,10 +6,10 @@
     height: 250px;
     width: 100%;
     overflow: hidden;
-    background-image: url("/images/design_images/river.jpg");
-    background: -webkit-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
-    background: -moz-linear-gradient(top, rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
-    background: -o-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-image: linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-image: -webkit-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-image: -moz-linear-gradient(top, rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-image: -o-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -98,56 +98,57 @@
     }//nav
 
   }//main-nav
-}
 
-
-footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  height: auto;
-  margin-top: 300px;
-  width: 100%;
-  overflow: hidden;
-  background-image: url("/images/design_images/river.jpg");
-  background: -webkit-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
-  background: -moz-linear-gradient(top, rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
-  background: -o-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  color: rgba(227, 137, 23, 1);
-  text-align: center;
-
-  .footer-container {
-    width: 50%;
+  footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
     height: auto;
-    display: block;
-    margin: 20px auto 10px auto;
+    margin-top: 300px;
+    width: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-image: -webkit-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-image: -moz-linear-gradient(top, rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-image: -o-linear-gradient(rgba(26, 61, 32, 0.8) 40%, rgba(36, 86, 45, 0.6) 100%), url("/images/design_images/river.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    color: rgba(227, 137, 23, 1);
     text-align: center;
-    h3 {
-      text-decoration: underline;
-      margin-bottom: 3px;
-    }
-    div {
-      ul {
-        list-style: none;
-        font-size: 1.3em;
+
+    .footer-container {
+      width: 50%;
+      height: auto;
+      display: block;
+      margin: 20px auto 10px auto;
+      text-align: center;
+      h3 {
+        text-decoration: underline;
+        margin-bottom: 3px;
       }
-      a {
-        i {
-          font-size: 1.8em;
-          padding: 10px;
-        }//i
-      }//a
-    }//div
-    .col-lg-12 {
-      p {
-        margin-bottom: 2px;
+      div {
+        ul {
+          list-style: none;
+          font-size: 1.3em;
+        }
+        a {
+          i {
+            font-size: 1.8em;
+            padding: 10px;
+          }//i
+        }//a
+      }//div
+      .col-lg-12 {
+        p {
+          margin-bottom: 2px;
+        }
       }
-    }
-  }//.footer-container
+    }//.footer-container
+  }
 }
+
+
 
 @include smallPhone {
   .main-nav {
@@ -160,9 +161,6 @@ footer {
       width: 50%;
       left: 50%;
       margin-left: -25%;
-      img {
-
-      }
     }//logo
     .drop-button {
       display: inline;
@@ -193,20 +191,23 @@ footer {
 
       #menu {
         width: 100%;
-        max-height: 300px;
+        max-height: 0;
         position: absolute;
         left: 0;
         margin: 0;
         padding: 0;
         z-index: +6;
-        // overflow: hidden;
+        overflow: hidden;
         -webkit-transition: max-height 1s;
         transition: max-height 0.5s;
         display: block;
+        &.show-nav{
+          max-height:400px;
+        }
 
         .menu-items {
           width: 100%;
-          height: 75px;
+          height: 100px;
           display: block;
           position: relative;
           padding: 0;
@@ -216,6 +217,7 @@ footer {
           z-index: +6;
           background-color: #fff;
           border: 1px solid rgba(227, 137, 23, 1);
+          font-size: 3em;
           &:nth-of-type(3) {
             flex: none;
             display: none;
@@ -236,5 +238,7 @@ footer {
 }
 
 @include tablet {
-
+  .main-nav {
+    height: 200px;
+  }
 }
