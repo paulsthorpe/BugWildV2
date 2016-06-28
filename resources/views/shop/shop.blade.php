@@ -22,7 +22,7 @@ Flash messages to report errors to customers.
     </h1>
     <div class="container-fluid product-display">
         <div class="row">
-            <div class="product_categories col-lg-2 col-sm-12">
+            <div class="product_categories col-lg-3 col-sm-12">
                 <h1>Product Categories</h1>
                 <ul class="side-nav">
                     @if(!empty($categories))
@@ -34,7 +34,7 @@ Flash messages to report errors to customers.
                     <li><a href="/sale">On Sale</a></li>
                 </ul>
             </div>
-            <div class="products-container col-lg-8">
+            <div class="products-container col-lg-9">
                 @if(!empty($products))
                     @foreach($products as $product)
                         <div class="col-lg-4 col-sm-6" id="item-thumbnail">
