@@ -40,7 +40,7 @@ Flash messages to report errors to customers.
                         <div class="col-lg-4 col-sm-6" id="item-thumbnail">
                             <div class="thumbnail-content-container">
                                 <div class="thumbnail-image"
-                                     style="background-image:url(/images/product_images/{{$product->image1}});">
+                                     style="background-image:url('/images/product_images/{{$product->image1}}');">
                                 <!-- <img src="/images/product_images/{{$product->image1}}"> -->
                                 </div>
                                 <h2>{{$product->title}}</h2>

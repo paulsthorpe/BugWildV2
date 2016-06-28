@@ -90,16 +90,15 @@ class ProductService
         $product->slug = str_slug($product->title);
         $product->price = $request->price;
         //store image name to pass to image field
-        if (!empty($request->file)) {
-            $counter = 1;
-            foreach ($request->file('image') as $image) {
-                $imageName = $image->getClientOriginalName();
-                //move imave to directory
-                $file = $image->move(public_path() . "/images/product_images/", $imageName);
-                //save image name
-                $product->{'image' . $counter} = $imageName;
-                $counter++;
-            }
+        foreach ($request->file('image') as $image) {
+          if($image){
+            $imageName = $image->getClientOriginalName();
+            //move imave to directory
+            $file = $image->move(public_path() . "/images/product_images/", $imageName);
+            //save image name
+            $product->{'image' . $counter} = $imageName;
+            $counter++;
+          }
         }
         //create new product
         $product->save();
