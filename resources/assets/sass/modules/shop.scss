@@ -3,40 +3,43 @@
     position: relative;
     height: auto;
     display: block;
+    .product-display {
+      width: 80%;
+      display: block;
+      margin: auto;
+      .side-nav {
+        font-size: 1.6em;
+      }
+      #item-thumbnail {
+        height: 375px;
+        margin: 10px 0;
+        text-align: center;
+        opacity: 0.9;
+        color: rgba(42, 100, 60, 1);
+        border: none;
+        // transition: color 0.5s, opacity 0.2s, border 0.2s, box-shadow: 0.2s;
 
-    .side-nav {
-      font-size: 1.6em;
-    }
-    #item-thumbnail {
-      height: 375px;
-      margin: 10px 0;
-      text-align: center;
-      opacity: 0.9;
-      color: rgba(42, 100, 60, 1);
-      border: none;
-      // transition: color 0.5s, opacity 0.2s, border 0.2s, box-shadow: 0.2s;
-
-      .thumbnail-content-container {
-        margin: 0 auto 15px auto;
-        position: relative;
-
-        .btn-small {
-          font-size: 1.5em;
-          width: 140px;
-          height: 30px;
-        }
-
-        .thumbnail-image {
-          display: block;
-          width: 100%;
-          height: 250px;
-          margin: 15px auto;
-          overflow: hidden;
+        .thumbnail-content-container {
+          margin: 0 auto 15px auto;
           position: relative;
-          @include centerbg();
+
+          .btn-small {
+            font-size: 1.5em;
+            width: 140px;
+            height: 30px;
+          }
+
+          .thumbnail-image {
+            display: block;
+            width: 100%;
+            height: 250px;
+            margin: 15px auto;
+            overflow: hidden;
+            position: relative;
+            @include centerbg();
+          }
         }
       }
-
     }
   }
 }
