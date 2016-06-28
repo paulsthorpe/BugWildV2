@@ -52,8 +52,8 @@ Flash messages to report errors to customers.
                     @endforeach
                 @endif
             </div>
+            {{ $products->links() }}
         </div>
-        {{ $products->links() }}
     </div>
     </body>
 @endsection
