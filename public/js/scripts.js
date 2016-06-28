@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-$('body').hide().delay(400).fadeIn(800);
+
 qty_counter();
 item_image_toggle();
 showNav();
