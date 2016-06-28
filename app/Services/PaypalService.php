@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Session;
 use Config;
+use Mail;
 use App\Order;
 use App\OrderItems;
 use PayPal\Rest\ApiContext;
@@ -296,6 +297,7 @@ class PaypalService
             $order->items()->save($product);
         }
 
+
         //remove session data
         Session::flush();
         Session::put('orderId', $this->orderId);
@@ -307,5 +309,21 @@ class PaypalService
         return 1;
 
     }
+
+
+    public function sendEmailAlert($id){
+      try {
+        $order = Order::with('items')->where('id', $id)->first();
+        Mail::send('email.alert', ['order' => $order] , function ($message) use ($order){
+              $subject = 'New Order '.$order->id;
+              $message->subject($subject)
+              ->to('paulsthorpe@gmail.com');
+        });
+      } catch (Exception $e) {
+
+      }
+    }
+
+
 
 } //end PostService class

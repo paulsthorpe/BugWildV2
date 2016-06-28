@@ -11,7 +11,7 @@ use Session;
 | CartService Class
 |--------------------------------------------------------------------------
 |
-| Class contains methods to facilitate actions required by cart 
+| Class contains methods to facilitate actions required by cart
 | addToCart()
 | incrementQty
 | decrementQty
@@ -26,7 +26,7 @@ class CartService
 {
 
     /**
-     * retrieve post request, create an array containing relevant product 
+     * retrieve post request, create an array containing relevant product
      * data and then push the created array on to items array in session
      * @param $request
      */

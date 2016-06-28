@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <body>
+    <body class="cart">
     <div class="container">
         <div class="row">
             <h1>Order Details</h1>
