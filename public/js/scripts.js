@@ -1,6 +1,5 @@
 
 $(document).ready(function(){
-
 qty_counter();
 item_image_toggle();
 showNav();
