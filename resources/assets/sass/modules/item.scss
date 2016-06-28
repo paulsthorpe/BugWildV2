@@ -208,3 +208,73 @@
   }
   //item-page
 }
+
+@include smallPhone {
+  .item-page {
+    .item-display {
+      width: 80%;
+      height: auto;
+      .item-picture {
+        width: 100%;
+        .default-image {
+          width: 75%;
+        }
+        .item-thumbs {
+
+          img {
+
+          }
+        }
+        .blow-up-image {
+          width: 95%;
+          transform: translateY(-73%) translateX(-200%);
+          &.fadeInLeft {
+            transform: translateX(-50%) translateY(-73%);
+          }
+        }
+      }
+      .item-details {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        label {
+        }
+        .option-selectors {
+
+          label {
+
+          }
+          .quantity {
+
+            select {
+
+            }
+            i {
+
+            }
+          }
+          .color-selector {
+            margin: 0;
+          }
+          .add {
+
+          }
+
+        }
+        //option-selectors
+
+      }
+      //item-details
+
+      .description {
+
+        pre {
+
+        }
+      }
+
+    }
+    //item-display
+  }
+}
