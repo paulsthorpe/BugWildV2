@@ -23,11 +23,13 @@
             </thead>
             <tbody>
             @foreach($order->items as $item)
-                <td>{{$item->title}}</td>
-                <td>{{$item->color}}</td>
-                <td>{{$item->size}}</td>
-                <td>{{$item->quantity}}</td>
-                <td>{{number_format(($item->total), 2, '.', ' ')}}</td>
+            <tr>
+              <td>{{$item->title}}</td>
+              <td>{{$item->color}}</td>
+              <td>{{$item->size}}</td>
+              <td>{{$item->quantity}}</td>
+              <td>{{number_format(($item->total), 2, '.', ' ')}}</td>
+            </tr>
             @endforeach
             </tbody>
         </table>
