@@ -100,21 +100,28 @@
 
 
         </div>
+
         @if(!empty($new_products))
+        <h1>New Flies</h1>
+        <div class="newest-flies">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
             @foreach($new_products as $new)
-                <h1>New Flies</h1>
-                <div class="newest-flies">
-                    <div class="new-fly-thumbs" id="item-thumbnail">
-                        <div class="thumbnail-content-container">
-                            <img src="{{$new->image1}}" class="thumbnail-image">
-                            <h3>{{$new->title}}</h3>
-                            <a href="/shop/{{$new->slug}}">
-                                <button class="btn-small">More Details...</button>
-                            </a>
-                        </div>
+
+                <div class="new-fly-thumbs col-lg-4" id="item-thumbnail">
+                    <div class="thumbnail-content-container">
+                        <img src="/images/product_images/{{$new->image1}}" class="thumbnail-image">
+                        <h3>{{$new->title}}</h3>
+                        <a href="/shop/{{$new->slug}}">
+                            <button class="btn-small">More Details...</button>
+                        </a>
                     </div>
                 </div>
+
             @endforeach
+                            </div>
+                          </div>
+                        </div>
         @endif
     @endif
     </body>
