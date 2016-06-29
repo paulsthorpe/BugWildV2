@@ -97,8 +97,6 @@
         </div>
         </div>
         <hr>
-
-
         </div>
 
         @if(!empty($new_products))
