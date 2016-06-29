@@ -92,13 +92,11 @@
                   </div>
                   <pre>{{$product->description}}</pre>
                 </div>
-
         </div>
         </div>
         </div>
         <hr>
         </div>
-
         @if(!empty($new_products))
         <h1>New Flies</h1>
         <div class="newest-flies">
