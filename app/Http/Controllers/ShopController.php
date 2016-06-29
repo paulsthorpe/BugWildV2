@@ -37,6 +37,15 @@ class ShopController extends Controller
         return view('shop.product', compact('product', 'categories', 'new_products'));
     }
 
+    public function itemmaybe($slug)
+    {
+        $product = Product::with('colors', 'sizes', 'category')->where('slug', $slug)->first();
+        $category = $product->category;
+        $new_products = Product::orderBy('id', 'DESC')->take(3);
+        $categories = ProductCategory::all();
+        return view('shop.maybeproduct', compact('product', 'categories', 'new_products', 'category'));
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

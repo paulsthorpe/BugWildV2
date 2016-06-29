@@ -17,8 +17,8 @@ class CreateOrderItemsTable extends Migration
             $table->integer('order_id');
             $table->string('title');
             $table->integer('quantity');
-            $table->string('color');
-            $table->string('size');
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
             $table->integer('total');
             $table->timestamps();
         });
