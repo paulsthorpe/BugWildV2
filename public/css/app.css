@@ -6060,7 +6060,15 @@ button.close {
               width: 80%;
               max-height: 175px !important;
               display: block;
-              margin: 0 auto; } }
+              margin: 0 auto; }
+        .shop .product-display #item-thumbnail .btn-small {
+          position: relative;
+          bottom: 0;
+          left: 0;
+          width: 75%;
+          height: 40px;
+          border-radius: 0;
+          font-size: 2em; } }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 766px) and (-webkit-min-device-pixel-ratio: 2) {
   .product-display {
