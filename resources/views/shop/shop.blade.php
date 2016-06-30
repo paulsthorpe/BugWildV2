@@ -22,19 +22,19 @@ Flash messages to report errors to customers.
     </h1>
     <div class="container-fluid product-display">
         <div class="row">
-            <div class="product_categories col-lg-3 col-md-2 col-sm-2">
+            <div class="product_categories col-lg-3 col-md-2 col-md-offset-1 col-sm-3 ">
                 <h1>Product Categories</h1>
                 <ul class="side-nav">
                     @if(!empty($categories))
                         @foreach($categories as $category)
-                            <li><a href="/shop/category/{{$category->slug}}">{{$category->title}}</a></li>
+                            <a href="/shop/category/{{$category->slug}}"><li>{{$category->title}}</li></a>
                         @endforeach
                     @endif
                     <li><a href="/featured">Featured Products</a></li>
                     <li><a href="/sale">On Sale</a></li>
                 </ul>
             </div>
-            <div class="products-container col-lg-9 col-md-10 col-sm-10">
+            <div class="products-container col-lg-9 col-md-9 col-sm-9">
                 @if(!empty($products))
                     @foreach($products as $product)
                         <div class="col-lg-4 col-md-4 col-sm-6" id="item-thumbnail">
