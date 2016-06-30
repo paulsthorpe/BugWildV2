@@ -6463,6 +6463,10 @@ button.close {
   .item-page-maybe .item-display {
     width: 80%;
     height: auto; }
+    .item-page-maybe .item-display .quick-links {
+      top: -35px;
+      z-index: 20;
+      font-size: 1.6em; }
     .item-page-maybe .item-display .item-picture {
       width: 100%; }
       .item-page-maybe .item-display .item-picture .default-image {
@@ -6512,6 +6516,10 @@ button.close {
   .item-page-maybe .item-display {
     width: 80%;
     height: auto; }
+    .item-page-maybe .item-display .quick-links {
+      z-index: 20;
+      top: -40px;
+      font-size: 1.9em; }
     .item-page-maybe .item-display .item-picture {
       width: 100%; }
       .item-page-maybe .item-display .item-picture .default-image {

@@ -256,6 +256,14 @@
     .item-display {
       width: 80%;
       height: auto;
+
+      .quick-links {
+
+        top: -35px;
+        z-index: 20;
+        font-size: 1.6em;
+      }
+
       .item-picture {
         width: 100%;
         .default-image {
@@ -376,6 +384,14 @@
     .item-display {
       width: 80%;
       height: auto;
+
+      .quick-links {
+        z-index: 20;
+        top: -40px;
+
+        font-size: 1.9em;
+      }
+
       .item-picture {
         width: 100%;
         .default-image {
