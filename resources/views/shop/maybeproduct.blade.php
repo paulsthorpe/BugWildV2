@@ -95,19 +95,32 @@
         </div>
         </div>
         </div>
-        <hr>
+
         </div>
         @if(!empty($new_products))
-        <h1>New Flies</h1>
+        <h1>Newest Flies</h1>
         <div class="newest-flies">
           <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+            <div class="col-lg-12">
+              <hr>
             @foreach($new_products as $new)
-
+<!--
                 <div class="new-fly-thumbs col-lg-4" id="item-thumbnail">
                     <div class="thumbnail-content-container">
                         <img src="/images/product_images/{{$new->image1}}" class="thumbnail-image">
                         <h3>{{$new->title}}</h3>
+                        <a href="/shop/{{$new->slug}}">
+                            <button class="btn-small">More Details...</button>
+                        </a>
+                    </div>
+                </div> -->
+                <div class="col-lg-4 col-sm-6" id="item-thumbnail">
+                    <div class="thumbnail-content-container">
+                        <div class="thumbnail-image"
+                             style="background-image:url('/images/product_images/{{$new->image1}}');">
+                        <!-- <img src="/images/product_images/{{$product->image1}}"> -->
+                        </div>
+                        <h2>{{$new->title}}</h2>
                         <a href="/shop/{{$new->slug}}">
                             <button class="btn-small">More Details...</button>
                         </a>
