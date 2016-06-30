@@ -30,15 +30,6 @@ class ShopController extends Controller
      */
     public function item($slug)
     {
-        $product = Product::with('colors', 'sizes')->where('slug', $slug)->first();
-        // dd($product);
-        $new_products = Product::orderBy('id', 'DESC')->take(3);
-        $categories = ProductCategory::all();
-        return view('shop.product', compact('product', 'categories', 'new_products'));
-    }
-
-    public function itemmaybe($slug)
-    {
         $product = Product::with('colors', 'sizes', 'category')->where('slug', $slug)->first();
         $category = $product->category;
         $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
@@ -75,9 +66,10 @@ class ShopController extends Controller
     public function category($slug)
     {
         $category = ProductCategory::where('slug', $slug)->first();
+        $page_title = $category->title;
         $products = Product::where('category_id', $category->id)->paginate(9);
         $categories = ProductCategory::all();
-        return view('shop.shop', compact('products', 'categories', 'category'));
+        return view('shop.shop', compact('products', 'page_title', 'categories', 'category'));
     }
 
 }

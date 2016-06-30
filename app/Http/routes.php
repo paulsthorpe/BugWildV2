@@ -17,7 +17,7 @@ Route::get('/', function(){
 
 Route::get('/shop', 'ShopController@index');
 
-Route::get('/shop/{slug}', 'ShopController@itemmaybe');
+Route::get('/shop/{slug}', 'ShopController@item');
 
 Route::get('/shop/category/{slug}', 'ShopController@category');
 
