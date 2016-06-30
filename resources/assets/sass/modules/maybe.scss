@@ -164,8 +164,8 @@
           align-items: center;
           cursor: pointer;
         }
-        pre {
-          border-top: 1px solid darkorange;
+        .description-content {
+          border: 1px solid black;
           background-color: inherit;
           font-family: 'Lato', sans-serif;
           font-size: 0.7em;
@@ -176,20 +176,22 @@
           word-wrap: break-word;
           width: 99%;
           padding: 20px 20px 10px;
-          // overflow: hidden;
+          -webkit-box-shadow: 5px 5px 2px #ccc;
+          -moz-box-shadow: 5px 5px 2px #ccc;
+          box-shadow: 5px 5px 2px #ccc;
         }
       }
+
 
     }//item-display
     .newest-flies {
       position: relative;
       width: 75%;
       margin: 0 auto;
-      padding-left: 3%;
+      padding: 0!important;
       border-bottom: 1px solid rgba(227, 137, 23, 1);
       border-top: 1px solid rgba(227, 137, 23, 1);
       #item-thumbnail {
-        height: 375px;
         margin: 10px 0;
         text-align: center;
         opacity: 0.9;
@@ -201,22 +203,48 @@
           margin: 0 auto 15px auto;
           position: relative;
 
-          .btn-small {
-            font-size: 1.5em;
-            width: 140px;
-            height: 30px;
-          }
+
 
           .thumbnail-image {
             display: block;
             width: 100%;
-            height: 250px;
+            height: 300px;
             margin: 15px auto;
             overflow: hidden;
             position: relative;
             @include centerbg();
-          }
-        }
+            a {
+              button {
+                width: 75%;
+                display: block;
+                margin: 0 auto;
+                border-radius: 0;
+                font-size: 3em;
+                height: 20%;
+                transform: translateY(300px);
+                opacity: 0;
+                transition: all 0.2s;
+                background: rgba(#000,0.6);
+                color: darkorange;
+                &:hover,
+                &focus {
+                  background-color: darkorange;
+                  color: #fff;
+                }
+              }//button
+            }//a
+            &:hover,
+            &:focus {
+              a {
+                button {
+                  transform: translateY(120px);
+                  opacity: 1;
+                }
+              }
+
+            }
+          }//thumbnail-image
+        }//thumbnail-content-container
       }
     }
   }

@@ -6401,8 +6401,8 @@ button.close {
         -ms-flex-align: center;
         align-items: center;
         cursor: pointer; }
-      .item-page-maybe .item-display .description pre {
-        border-top: 1px solid darkorange;
+      .item-page-maybe .item-display .description .description-content {
+        border: 1px solid black;
         background-color: inherit;
         font-family: 'Lato', sans-serif;
         font-size: 0.7em;
@@ -6412,16 +6412,16 @@ button.close {
         white-space: -o-pre-wrap;
         word-wrap: break-word;
         width: 99%;
-        padding: 20px 20px 10px; }
+        padding: 20px 20px 10px;
+        box-shadow: 5px 5px 2px #ccc; }
   .item-page-maybe .newest-flies {
     position: relative;
     width: 75%;
     margin: 0 auto;
-    padding-left: 3%;
+    padding: 0 !important;
     border-bottom: 1px solid #e38917;
     border-top: 1px solid #e38917; }
     .item-page-maybe .newest-flies #item-thumbnail {
-      height: 375px;
       margin: 10px 0;
       text-align: center;
       opacity: 0.9;
@@ -6430,20 +6430,34 @@ button.close {
       .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container {
         margin: 0 auto 15px auto;
         position: relative; }
-        .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container .btn-small {
-          font-size: 1.5em;
-          width: 140px;
-          height: 30px; }
         .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image {
           display: block;
           width: 100%;
-          height: 250px;
+          height: 300px;
           margin: 15px auto;
           overflow: hidden;
           position: relative;
           background-repeat: no-repeat;
           background-position: center center;
-          background-size: cover; } }
+          background-size: cover; }
+          .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a button {
+            width: 75%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 0;
+            font-size: 3em;
+            height: 20%;
+            transform: translateY(300px);
+            opacity: 0;
+            transition: all 0.2s;
+            background: rgba(0, 0, 0, 0.6);
+            color: darkorange; }
+            .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a button:hover, .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a buttonfocus {
+              background-color: darkorange;
+              color: #fff; }
+          .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image:hover a button, .item-page-maybe .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image:focus a button {
+            transform: translateY(120px);
+            opacity: 1; } }
 
 @media only screen and (min-device-width: 767px) and (max-device-width: 1199px) {
   .item-page-maybe .item-display {

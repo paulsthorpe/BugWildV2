@@ -90,7 +90,9 @@
                   <div class="tab">
                     <p>Description</p>
                   </div>
-                  <pre>{{$product->description}}</pre>
+                  <div class="description-content">
+                    {{$product->description}}
+                  </div>
                 </div>
         </div>
         </div>
@@ -102,7 +104,7 @@
         <div class="newest-flies">
           <div class="row">
             <div class="col-lg-12">
-              <hr>
+
             @foreach($new_products as $new)
 <!--
                 <div class="new-fly-thumbs col-lg-4" id="item-thumbnail">
@@ -118,12 +120,12 @@
                     <div class="thumbnail-content-container">
                         <div class="thumbnail-image"
                              style="background-image:url('/images/product_images/{{$new->image1}}');">
-                        <!-- <img src="/images/product_images/{{$product->image1}}"> -->
+                             <a href="/shop/{{$new->slug}}">
+                                 <button class="btn-small">More Details...</button>
+                             </a>
                         </div>
                         <h2>{{$new->title}}</h2>
-                        <a href="/shop/{{$new->slug}}">
-                            <button class="btn-small">More Details...</button>
-                        </a>
+
                     </div>
                 </div>
 
