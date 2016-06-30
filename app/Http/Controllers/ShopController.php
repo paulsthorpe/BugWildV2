@@ -34,7 +34,7 @@ class ShopController extends Controller
         $category = $product->category;
         $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
         $categories = ProductCategory::all();
-        return view('shop.maybeproduct', compact('product', 'categories', 'new_products', 'category'));
+        return view('shop.item', compact('product', 'categories', 'new_products', 'category'));
     }
 
     /**
