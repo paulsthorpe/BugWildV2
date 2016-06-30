@@ -6042,6 +6042,7 @@ button.close {
         font-size: 1.6em; }
       .shop .product-display #item-thumbnail {
         margin: 10px 0;
+        height: 275px;
         opacity: 0.9;
         color: #2a643c;
         position: relative; }
