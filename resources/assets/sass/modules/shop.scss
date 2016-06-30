@@ -45,32 +45,48 @@
 }
 
 @include smallPhone {
-
-  .side-nav {
-    font-size: 2em;
-  }
-
-  .thumbnail-image {
-    width: 75%;
-    margin: 0 auto;
-    display: none;
-  }
-}
-
-@include tablet {
-
-  .shop {
+  .product-display {
+    width: 100%!important;
+    margin: 20px auto;
+    .row {
+      width: 100%;
+    }
     .product_categories {
+      h1 {
+        font-size: 1.9em;
+      }
       .side-nav {
         font-size: 2em;
       }
     }
-    #item-thumbnail {
-      .thumbnail-content-container {
-        .thumbnail-image {
-          width: 80%;
-        }
+    .thumbnail-image {
+      width: 75%;
+      margin: 0 auto;
+      display: none;
+    }
+  }
+
+}
+
+@include tablet {
+  .product-display {
+    width: 100%!important;
+    margin: 20px auto;
+    .row {
+      width: 100%;
+    }
+    .product_categories {
+      h1 {
+        font-size: 1.9em;
       }
+      .side-nav {
+        font-size: 2em;
+      }
+    }
+    .thumbnail-image {
+      width: 75%;
+      margin: 0 auto;
+      display: none;
     }
   }
 }
