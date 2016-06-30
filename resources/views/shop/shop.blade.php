@@ -22,7 +22,7 @@ Flash messages to report errors to customers.
     </h1>
     <div class="container-fluid product-display">
         <div class="row">
-            <div class="product_categories col-lg-3 col-md-2 col-md-offset-1 col-sm-3 ">
+            <div class="product_categories col-lg-2 col-lg-offset-1 col-sm-3 ">
                 <h1>Product Categories</h1>
                 <ul class="side-nav">
                     @if(!empty($categories))
@@ -34,20 +34,22 @@ Flash messages to report errors to customers.
                     <li><a href="/sale">On Sale</a></li>
                 </ul>
             </div>
-            <div class="products-container col-lg-9 col-md-9 col-sm-9">
+            <div class="products-container col-lg-8 col-sm-9">
                 @if(!empty($products))
                     @foreach($products as $product)
                         <div class="col-lg-4 col-md-4 col-sm-6" id="item-thumbnail">
                             <div class="thumbnail-content-container">
-                                <div class="thumbnail-image"
-                                     style="background-image:url('/images/product_images/{{$product->image1}}');">
-                                <!-- <img src="/images/product_images/{{$product->image1}}"> -->
+
+                                <div class="thumbnail-image">
+
+                                <img src="/images/product_images/{{$product->image1}}">
                                 </div>
                                 <h2>{{$product->title}}</h2>
                                 <a href="/shop/{{$product->slug}}">
                                     <button class="btn-small">More Details...</button>
                                 </a>
                             </div>
+
                         </div>
                     @endforeach
                 @endif
