@@ -103,7 +103,7 @@
         <h1>Newest Flies</h1>
         <div class="newest-flies">
           <div class="row">
-            <div class="col-lg-12">
+            
 
             @foreach($new_products as $new)
 <!--
@@ -116,7 +116,7 @@
                         </a>
                     </div>
                 </div> -->
-                <div class="col-lg-4 col-sm-6" id="item-thumbnail">
+                <div class="col-lg-3 col-md-6 col-sm-6" id="item-thumbnail">
                     <div class="thumbnail-content-container">
                         <div class="thumbnail-image"
                              style="background-image:url('/images/product_images/{{$new->image1}}');">
@@ -124,13 +124,14 @@
                                  <button class="btn-small">More Details...</button>
                              </a>
                         </div>
-                        <h2>{{$new->title}}</h2>
-
+                         <a href="/shop/{{$new->slug}}">
+                           <h2>{{$new->title}}</h2>
+                        </a>
                     </div>
                 </div>
 
             @endforeach
-                            </div>
+
                           </div>
                         </div>
         @endif

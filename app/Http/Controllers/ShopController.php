@@ -41,7 +41,7 @@ class ShopController extends Controller
     {
         $product = Product::with('colors', 'sizes', 'category')->where('slug', $slug)->first();
         $category = $product->category;
-        $new_products = Product::take(3)->orderBy('id', 'DESC')->get();
+        $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
         $categories = ProductCategory::all();
         return view('shop.maybeproduct', compact('product', 'categories', 'new_products', 'category'));
     }

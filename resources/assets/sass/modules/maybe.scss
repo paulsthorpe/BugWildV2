@@ -192,7 +192,7 @@
       border-bottom: 1px solid rgba(227, 137, 23, 1);
       border-top: 1px solid rgba(227, 137, 23, 1);
       #item-thumbnail {
-        margin: 10px 0;
+        margin: 35px 0;
         text-align: center;
         opacity: 0.9;
         color: rgba(42, 100, 60, 1);
@@ -246,7 +246,7 @@
           }//thumbnail-image
         }//thumbnail-content-container
       }
-    }
+    }//newest-flies
   }
   //item-page
 }
@@ -319,6 +319,55 @@
     }
     //item-display
   }
+  .newest-flies {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0!important;
+    border-bottom: 1px solid rgba(227, 137, 23, 1);
+    border-top: 1px solid rgba(227, 137, 23, 1);
+    #item-thumbnail {
+
+      .thumbnail-content-container {
+
+        .thumbnail-image {
+          width: 50%;
+          height: 300px;
+
+          a {
+            button {
+              width: 75%;
+              display: block;
+              margin: 0 auto;
+              border-radius: 0;
+              font-size: 3em;
+              height: 20%;
+              transform: translateY(300px);
+              opacity: 0;
+              transition: all 0.2s;
+              background: rgba(#000,0.6);
+              color: darkorange;
+              &:hover,
+              &focus {
+                background-color: darkorange;
+                color: #fff;
+              }
+            }//button
+          }//a
+          &:hover,
+          &:focus {
+            a {
+              button {
+                transform: translateY(120px);
+                opacity: 1;
+              }
+            }
+
+          }
+        }//thumbnail-image
+      }//thumbnail-content-container
+    }
+  }//newest-flies
   //item-page
 }
 
@@ -390,4 +439,54 @@
     }
     //item-display
   }
+  .newest-flies {
+    position: relative;
+    width: 95%;
+    margin: 0 auto -100px;
+    padding: 0!important;
+    border-bottom: 1px solid rgba(227, 137, 23, 1);
+    border-top: 1px solid rgba(227, 137, 23, 1);
+    #item-thumbnail {
+
+      .thumbnail-content-container {
+
+        .thumbnail-image {
+          position: relative;
+          width: 100%!important;
+          height: 300px;
+
+          a {
+            button {
+              width: 75%;
+              display: block;
+              margin: 0 auto;
+              border-radius: 0;
+              font-size: 3em;
+              height: 20%;
+              transform: translateY(300px);
+              opacity: 0;
+              transition: all 0.2s;
+              background: rgba(#000,0.6);
+              color: darkorange;
+              &:hover,
+              &focus {
+                background-color: darkorange;
+                color: #fff;
+              }
+            }//button
+          }//a
+          &:hover,
+          &:focus {
+            a {
+              button {
+                transform: translateY(120px);
+                opacity: 1;
+              }
+            }
+
+          }
+        }//thumbnail-image
+      }//thumbnail-content-container
+    }
+  }//newest-flies
 }
