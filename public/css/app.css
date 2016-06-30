@@ -6041,7 +6041,7 @@ button.close {
       .shop .product-display .side-nav {
         font-size: 1.6em; }
       .shop .product-display #item-thumbnail {
-        margin: 10px 0;
+        margin: 10px 0 60px;
         height: 275px;
         opacity: 0.9;
         color: #2a643c;
