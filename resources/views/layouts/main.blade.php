@@ -35,30 +35,30 @@
     <div class="footer-container">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <h3>Find Me On Social Media</h3>
                     <a href='http://www.facebook.com/Bug-Wild-1580034655571591/'><i
                                 class="fa fa-facebook-square"></i></a>
                     <a href="http://www.instagram.com/bug.wild/"><i class="fa fa-instagram"></i></a>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <h3>Quick Links</h3>
                     <ul>
-                        <a href="/">
-                            <li>Home</li>
-                        </a>
-                        <a href="/shop">
+                        <a href="/Shop">
                             <li>Shop</li>
                         </a>
-                        <a href="/blog">
-                            <li>Blog</li>
+                        <a href="/sale">
+                            <li>On Sale</li>
+                        </a>
+                        <a href="/featured">
+                            <li>Featured Products</li>
                         </a>
                         <a href="/cart">
                             <li>Cart</li>
                         </a>
                     </ul>
                 </div>
-                <div class="col-lg-3">
+                <!-- <div class="col-lg-4">
                     <h3>Recent Post</h3>
                     <ul>
                         @if(!empty($recent_posts))
@@ -67,13 +67,13 @@
                             @endforeach
                         @endif
                     </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h3>Featured Flies</h3>
+                </div> -->
+                <div class="col-lg-4">
+                    <h3>New Flies</h3>
                     <ul>
-                        @if(!empty($featured_products))
-                            @foreach($featured_products as $featured)
-                                <li><a href="/shop/{{$featured->title}}">{{$featured->title}}</a></li>
+                        @if(!empty($new_products))
+                            @foreach($new_products as $featured)
+                                <li><a href="/shop/{{$featured->slug}}">{{$featured->title}}</a></li>
                             @endforeach
                         @else
                             <li>There are no currently featured products</li>

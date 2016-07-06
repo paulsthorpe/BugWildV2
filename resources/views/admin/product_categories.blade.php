@@ -63,7 +63,8 @@
                 <input type="text" class="form-control" name="title">
             </div>
             <div class="col-md-2">
-                <button type="submit" name="submit_edit">Submit Edit</button>
+              <br><br><br>
+                <button type="submit" class="btn btn-primary" name="submit_edit">Submit Edit</button>
             </div>
         </form>
     </div>

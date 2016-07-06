@@ -20,8 +20,9 @@ class ShopController extends Controller
     public function index()
     {
         $products = Product::orderBy('id', 'DESC')->paginate(9);
+        $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
         $categories = ProductCategory::all();
-        return view('shop.shop', compact('products', 'categories'));
+        return view('shop.shop', compact('products', 'categories', 'new_products'));
     }
 
     /**
@@ -34,7 +35,7 @@ class ShopController extends Controller
         $category = $product->category;
         $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
         $categories = ProductCategory::all();
-        return view('shop.item', compact('product', 'categories', 'new_products', 'category'));
+        return view('shop.item', compact('product', 'categories', 'new_products', 'category', 'new_products'));
     }
 
     /**
@@ -43,9 +44,10 @@ class ShopController extends Controller
     public function featured()
     {
         $products = Product::where('featured', 1)->paginate(9);
+        $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
         $page_title = 'Featured Products';
         $categories = ProductCategory::all();
-        return view('shop.shop', compact('products', 'page_title', 'categories'));
+        return view('shop.shop', compact('products', 'page_title', 'categories', 'new_products'));
     }
 
     /**
@@ -54,9 +56,10 @@ class ShopController extends Controller
     public function sale()
     {
         $products = Product::where('on_sale', 1)->paginate(9);
+        $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
         $page_title = 'On Sale';
         $categories = ProductCategory::all();
-        return view('shop.shop', compact('products', 'page_title', 'categories'));
+        return view('shop.shop', compact('products', 'page_title', 'categories', 'new_products'));
     }
 
     /**
@@ -68,6 +71,7 @@ class ShopController extends Controller
         $category = ProductCategory::where('slug', $slug)->first();
         $page_title = $category->title;
         $products = Product::where('category_id', $category->id)->paginate(9);
+        $new_products = Product::take(4)->orderBy('id', 'DESC')->get();
         $categories = ProductCategory::all();
         return view('shop.shop', compact('products', 'page_title', 'categories', 'category'));
     }

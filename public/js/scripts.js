@@ -8,6 +8,8 @@ itemImages();
 
 $('.flash').delay(10000).fadeOut(500);
 
+$('.added').delay(2000).fadeOut(200);
+
 $('.drop-button').on('click', function(){
   $(this).toggleClass('show-nav');
 });

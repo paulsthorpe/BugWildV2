@@ -13,7 +13,10 @@
 
 
     <body class="item-page-maybe">
-
+    @if(Session::has('added'))
+        <div class="alert alert-success added"
+             style="postion:absolute;z-index:1000;top:0;bottom:0;width:100vw;">{{ Session::get('added') }}</div>
+    @endif
     @if(!empty($product))
         <div class="item-display">
           <div class="quick-links">
@@ -103,7 +106,7 @@
         <h1>Newest Flies</h1>
         <div class="newest-flies">
           <div class="row">
-            
+
 
             @foreach($new_products as $new)
 <!--

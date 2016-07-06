@@ -42,7 +42,7 @@ class CartController extends Controller
     }
 
     /**
-     * show cart review 
+     * show cart review
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function review()
@@ -65,7 +65,8 @@ class CartController extends Controller
      */
     public function addToCart(Request $request)
     {
-        $this->cartService->addToCart($request);
+        $title = $this->cartService->addToCart($request);
+        Session::flash('added', 'Added '.$title.' To Cart');
         return back();
     }
 

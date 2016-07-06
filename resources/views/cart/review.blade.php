@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{$item['product_title']}}</td>
                             <td>
-                                $ {{number_format((($item['base_price'] + $item['base_price']) /100), 2, '.', ' ')}}</td>
+                                $ {{number_format((($item['base_price']) /100), 2, '.', ' ')}}</td>
                             <td>{{$item['color']}}</td>
                             <td>{{$item['size']}}</td>
                             <td>{{$item['quantity']}}</td>

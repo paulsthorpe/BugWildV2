@@ -56,6 +56,7 @@ class CartService
             $cartTotal += $item['price_as_config'];
             $itemCount += $item['quantity'];
         }
+        return $product->title;
     }
 
     /**
