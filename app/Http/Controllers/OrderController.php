@@ -30,7 +30,8 @@ class OrderController extends Controller
     {
         $order = Order::with('items')->where('id', $id)->first();
         foreach($order->items as $item){
-          $item->color = ProductColor::where('id', $item->color)->value('title');
+          $color = ProductColor::where('id', $item->color)->value('title');
+          $item->color = $color;
         }
         return view('admin.order', compact('order'));
     }
