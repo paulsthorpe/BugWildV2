@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Carbon;
 use App\Order;
+use App\ProductColor;
 
 class OrderController extends Controller
 {
@@ -27,7 +28,10 @@ class OrderController extends Controller
      */
     public function get($id)
     {
-        $order = Order::with('items')->where('id', $id)->firstOrFail();
+        $order = Order::with('items')->where('id', $id)->first();
+        foreach($order->items as $item){
+          $item->color = \DB::table('product_colors')->where('id', $item->color)->value('title');
+        }
         return view('admin.order', compact('order'));
     }
 
