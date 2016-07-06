@@ -29,10 +29,6 @@ class OrderController extends Controller
     public function get($id)
     {
         $order = Order::with('items')->where('id', $id)->first();
-        foreach($order->items as $item){
-          $color = ProductColor::where('id', $item->color)->value('title');
-          $item->color = $color;
-        }
         return view('admin.order', compact('order'));
     }
 
