@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Order;
 use Excel;
 use Carbon\Carbon;
+use Mail;
 
 class Weekly extends Command
 {
@@ -85,5 +86,13 @@ class Weekly extends Command
       // and finally this little bit will save the file to storage/exports/*filename.xls
 
       })->store('xls');
+
+      $records = [1,2];
+      Mail::send('email.test', ['records' => $records] , function ($message) use ($records) {
+      $subject = 'Weekly Report 4';
+      $message->subject('test')
+      ->to('bugwildflyco@gmail.com');
+      });
+
     }
 }

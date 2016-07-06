@@ -43,8 +43,10 @@
                         <hr>
                         @if(!empty($sizes))
                             @foreach($sizes as $size)
-                                <label for="">{{$size->title}}</label>
-                                <input type="checkbox" name="sizes[]" value="{{$size->id}}">
+                            <div class="size-box">
+                              <label for="">Size: {{$size->title}} Upcharge: $ {{number_format((($size->price) /100), 2, '.', ' ')}}</label>
+                              <input type="checkbox" name="sizes[]" value="{{$size->id}}">
+                            </div>
                             @endforeach
                         @endif
                     </div>
@@ -94,3 +96,12 @@
     <!-- /.container-fluid -->
 
 @endsection
+
+<style media="screen">
+  .size-box {
+    padding: 5px;
+    border: 1px solid black;
+    width: 25%;
+    
+  }
+</style>
