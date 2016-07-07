@@ -39,6 +39,9 @@
                             @endforeach
                         @endif
                     </div>
+                    <div style="clear:both;">
+
+                    </div>
                     <!-- SIZE INPUTS -->
                     <div class="form-group sizes">
                         <label for="product_sizes">Product Sizes</label>
