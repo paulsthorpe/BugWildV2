@@ -42,6 +42,7 @@
                     <div style="clear:both;">
 
                     </div>
+                    <br><br><br>
                     <!-- SIZE INPUTS -->
                     <div class="form-group sizes">
                         <label for="product_sizes">Product Sizes</label>
