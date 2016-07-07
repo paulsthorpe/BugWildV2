@@ -111,11 +111,17 @@
     display: block;
     float: left;
   }
+  .size-box:hover {
+    background-color: #fff;
+  }
   .color-box {
     padding: 10px;
     border: 1px solid black;
     width: 25%;
     display: block;
     float: left;
+  }
+  .color-box:hover {
+    background-color: #fff;
   }
 </style>
