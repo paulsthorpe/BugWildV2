@@ -40,6 +40,7 @@ class ProductCategoriesController extends Controller
     {
         $category = ProductCategory::find($request->id);
         $category->title = $request->title;
+        $category->slug = str_slug($category->title);
         $category->save();
         return back();
     }
