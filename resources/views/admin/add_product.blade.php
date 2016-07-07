@@ -32,8 +32,10 @@
                         <hr>
                         @if(!empty($colors))
                             @foreach($colors as $color)
-                                <label for="">{{$color->title}}</label>
-                                <input type="checkbox" name="colors[]" value="{{$color->id}}">
+                            <div class="color-box">
+                              <label for="">{{$color->title}}</label>
+                              <input type="checkbox" name="colors[]" value="{{$color->id}}">
+                            </div>
                             @endforeach
                         @endif
                     </div>
@@ -104,6 +106,12 @@
     width: 25%;
     display: block;
     float: left;
-
+  }
+  .color-box {
+    padding: 10px;
+    border: 1px solid black;
+    width: 25%;
+    display: block;
+    float: left;
   }
 </style>
