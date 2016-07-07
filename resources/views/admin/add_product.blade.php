@@ -99,9 +99,11 @@
 
 <style media="screen">
   .size-box {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid black;
     width: 25%;
-    
+    display: block;
+    float: left;
+
   }
 </style>
