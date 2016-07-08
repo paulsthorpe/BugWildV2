@@ -119,17 +119,17 @@ Route::group(['middleware' => 'auth'], function(){
 
 
 
-  Route::get('/admin/post', 'BlogController@index');
+  Route::get('/admin/posts', 'PostController@index');
 
-  Route::get('/admin/add_post', 'BlogController@add');
+  Route::get('/admin/add_post', 'PostController@add');
 
-  Route::get('/admin/edit_post/{post}', 'BlogController@edit');
+  Route::get('/admin/edit_post/{post}', 'PostController@edit');
 
-  Route::post('/admin/post', 'BlogController@save');
+  Route::post('/admin/post', 'PostController@save');
 
-  Route::patch('/admin/post', 'BlogController@patch');
+  Route::patch('/admin/post', 'PostController@patch');
 
-  Route::delete('/admin/post', 'BlogController@destroy');
+  Route::delete('/admin/post', 'PostController@destroy');
 
 
 
@@ -140,6 +140,15 @@ Route::group(['middleware' => 'auth'], function(){
   Route::patch('/admin/post_category', 'BlogCategoriesController@patch');
 
   Route::delete('/admin/post_category', 'BlogCategoriesController@destroy');
+
+
+
+  Route::get('/blog', 'BlogController@index');
+
+  Route::get('/blog/{slug}', 'BlogController@getPost');
+
+  Route::get('/blog/category/{slug}', 'BlogController@getCategory');
+
 
 
 

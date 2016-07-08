@@ -35,13 +35,13 @@
     <div class="footer-container">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <h3>Find Me On Social Media</h3>
                     <a href='http://www.facebook.com/Bug-Wild-1580034655571591/'><i
                                 class="fa fa-facebook-square"></i></a>
                     <a href="http://www.instagram.com/bug.wild/"><i class="fa fa-instagram"></i></a>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <h3>Quick Links</h3>
                     <ul>
                         <a href="/Shop">
@@ -58,7 +58,7 @@
                         </a>
                     </ul>
                 </div>
-                <!-- <div class="col-lg-4">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <h3>Recent Post</h3>
                     <ul>
                         @if(!empty($recent_posts))
@@ -67,8 +67,8 @@
                             @endforeach
                         @endif
                     </ul>
-                </div> -->
-                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <h3>New Flies</h3>
                     <ul>
                         @if(!empty($new_products))
@@ -78,6 +78,16 @@
                         @else
                             <li>There are no currently featured products</li>
                         @endif
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 affilate-links">
+                    <p>Bugwild Affilates</p>
+                    <ul>
+                      <li>1</li>
+                      <li>2</li>
+                      <li>3</li>
                     </ul>
                 </div>
             </div>
