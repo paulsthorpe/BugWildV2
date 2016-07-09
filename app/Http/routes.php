@@ -14,7 +14,7 @@
 
 
 
-route::get('/register', 'PagesController@preventRegister');
+Route::get('/register', 'PagesController@preventRegister');
 
 
 Route::group(['middleware' => 'auth'], function(){
