@@ -10,7 +10,7 @@
     <div class="alert alert-danger flash"
          style="postion:absolute;z-index:1000;top:0;bottom:0;width:100vw;">{{ Session::get('paypal_failed') }}</div>
 @elseif(Session::has('success'))
-    <div class="alert alert-success flash" style="min-height:100vh;"
+    <div class="alert alert-success flash" style="min-height:65vh;"
          style="postion:absolute;z-index:1000;top:0;bottom:0;width:100vw;">{{ Session::get('success') }}</div>
          <br></br>
          <h1>Thanks for Ordering with Bugwild Fly Co.</h1>
