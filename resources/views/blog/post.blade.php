@@ -38,7 +38,7 @@
     }
 </style>
 
-<div class="content-container">
+<div class="content-container" style="min-height:100%;">
   <div class="container-fluid">
     <div class="row">
        <div class="col-lg-12" id="content">

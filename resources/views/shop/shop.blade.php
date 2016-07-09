@@ -12,7 +12,7 @@
 Flash messages to report errors to customers.
  -->
 
-    <body class="shop">
+    <body class="shop" >
     <h1 style="font-size: 5em; margin-top: 75px;">
         @if(!empty($page_title))
             {{$page_title}}
@@ -20,7 +20,7 @@ Flash messages to report errors to customers.
             Shop
         @endif
     </h1>
-    <div class="container-fluid product-display">
+    <div class="container-fluid product-display" style="min-height:100%;">
         <div class="row">
             <div class="product_categories col-lg-2 col-lg-offset-1 col-sm-3 ">
                 <h1>Product Categories</h1>

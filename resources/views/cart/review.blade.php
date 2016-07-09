@@ -3,7 +3,7 @@
 @section('content')
 
     <body class="cart">
-    <div class="container">
+    <div class="container" style="min-height:100%;">
         <div class="row">
             <h1>Order Details</h1>
             <table class="table table-striped">
