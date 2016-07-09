@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <body class="cart">
-    <div class="container" style="min-height:65vh;">
+    <div class="container" style="min-height:55vh;">
         <div class="row">
             <h1>Checkout</h1>
             <table class="table table-striped">

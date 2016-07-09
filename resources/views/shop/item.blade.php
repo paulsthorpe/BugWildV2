@@ -18,7 +18,7 @@
              style="postion:absolute;z-index:1000;top:0;bottom:0;width:100vw;">{{ Session::get('added') }}</div>
     @endif
     @if(!empty($product))
-        <div class="item-display" style="min-height:65vh;">
+        <div class="item-display" style="min-height:55vh;">
             <div class="quick-links">
                 <span><a href="/shop">Shop</a></span> / <span><a
                             href="/shop/category/{{$category->slug}}">{{$category->title}}</a></span> /

@@ -38,7 +38,7 @@
     }
 </style>
 
-<div class="content-container" style="min-height:65vh;">
+<div class="content-container" style="min-height:55vh;">
   <div class="container-fluid">
     <div class="row">
        <div class="col-lg-12" id="content">
