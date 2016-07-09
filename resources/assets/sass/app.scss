@@ -17,6 +17,11 @@
   font-family: 'Lato', sans-serif;
   text-align: center;
   font-size: 0.95em;
+
+  body {
+    min-height: 100vh;
+  }
+  
 }
 
 a,
