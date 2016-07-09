@@ -6453,6 +6453,22 @@ button.close {
     .cart .container label {
       font-size: 1.9em; } }
 
+.blog .content-container {
+  margin: 100px auto; }
+  .blog .content-container #content {
+    margin-bottom: 100px; }
+    .blog .content-container #content .post-container img {
+      display: block;
+      width: 60%;
+      margin: 0 auto; }
+    .blog .content-container #content .post-container pre {
+      font-size: 1.4em;
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+      border: none;
+      font-family: 'Lato', sans-serif; }
+
 @media screen and (max-device-width: 3000px) {
   .item-page-maybe .item-display {
     width: 70%;
@@ -6605,11 +6621,27 @@ button.close {
         box-shadow: 5px 5px 2px #ccc; }
   .item-page-maybe .newest-flies {
     position: relative;
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 !important;
-    border-bottom: 1px solid #e38917;
-    border-top: 1px solid #e38917; }
+    padding: 0 !important; }
+    .item-page-maybe .newest-flies hr {
+      background-color: darkorange;
+      border: 1px solid darkorange;
+      width: 100%;
+      display: inline-block; }
+      .item-page-maybe .newest-flies hr.left {
+        width: 40%;
+        float: left; }
+      .item-page-maybe .newest-flies hr.right {
+        width: 40%;
+        float: right; }
+    .item-page-maybe .newest-flies h1 {
+      display: inline-block;
+      max-width: 20%;
+      transform: translateY(-22px); }
+    .item-page-maybe .newest-flies .row {
+      width: 75%;
+      margin: 0 auto; }
     .item-page-maybe .newest-flies #item-thumbnail {
       margin: 35px 0;
       text-align: center;
@@ -6676,9 +6708,11 @@ button.close {
     position: relative;
     width: 95%;
     margin: 0 auto;
-    padding: 0 !important;
-    border-bottom: 1px solid #e38917;
-    border-top: 1px solid #e38917; }
+    padding: 0 !important; }
+    .newest-flies h1 {
+      display: inline-block;
+      max-width: 13%;
+      transform: translateY(-22px); }
     .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image {
       width: 50%;
       height: 300px; }
@@ -6729,9 +6763,11 @@ button.close {
     position: relative;
     width: 95%;
     margin: 0 auto -100px;
-    padding: 0 !important;
-    border-bottom: 1px solid #e38917;
-    border-top: 1px solid #e38917; }
+    padding: 0 !important; }
+    .newest-flies h1 {
+      display: inline-block;
+      max-width: 17%;
+      transform: translateY(-22px); }
     .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image {
       position: relative;
       width: 100% !important;

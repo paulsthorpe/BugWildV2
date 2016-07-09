@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-<body>
+<body class="blog">
    <div class="content-container" style="min-height:55vh;">
    <h1 style="font-size: 4em;">
      @if(!empty($page_title))
          {{$page_title}}
      @else
-         From The Blog
+         
      @endif
    </h1>
        <aside class="col-lg-3" id="sidenav">
@@ -41,9 +41,9 @@
             <div class="post-container">
                 <img src='/images/blog_images/{{$post->image}}'>
                 <a href="/blog/{{$post->slug}}"><h2>{{$post->title}}</h2></a>
-                <h4>Date: {{Carbon\Carbon::parse($post->created_at)->format('M  d, Y')}}</h4>
+                <h4>{{Carbon\Carbon::parse($post->created_at)->format('M  d, Y')}}</h4>
                 <h4>In: {{$post->category->title}}</h4>
-                <pre class="excerpt">{{substr($post->body, 0, 300)}}<a href="/blog/{{$post->slug}}">More</a></pre>
+                <pre class="excerpt">{{substr($post->body, 0, 300)}}...&nbsp<a href="/blog/{{$post->slug}}">More</a></pre>
             </div>
           @endforeach
           {{ $posts->links() }}
