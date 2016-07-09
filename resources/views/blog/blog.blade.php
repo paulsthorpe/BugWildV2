@@ -6,7 +6,7 @@
 
 @section('content')
 <body>
-   <div class="content-container" style="min-height:100%;">
+   <div class="content-container" style="min-height:100vh;">
    <h1 style="font-size: 4em;">
      @if(!empty($page_title))
          {{$page_title}}

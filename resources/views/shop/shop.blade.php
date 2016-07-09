@@ -20,7 +20,7 @@ Flash messages to report errors to customers.
             Shop
         @endif
     </h1>
-    <div class="container-fluid product-display" style="min-height:100%;">
+    <div class="container-fluid product-display" style="min-height:100vh;">
         <div class="row">
             <div class="product_categories col-lg-2 col-lg-offset-1 col-sm-3 ">
                 <h1>Product Categories</h1>
