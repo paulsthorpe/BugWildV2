@@ -1,4 +1,7 @@
 @include computer {
+  html {
+    min-height: 100vh;
+  }
   .main-nav {
     position: relative;
     top: 0;
@@ -238,9 +241,46 @@
             top: 15px;
             z-index: +6;
           }
+        }//menuitems
+      }//menu
+    }//nav
+  }//main-nav
+  footer {
+
+    .footer-container {
+      width: 100%;
+
+
+      div {
+        h3 {
+          text-decoration: underline;
+          margin-bottom: 3px;
+          font-size: 1.9em;
+        }
+        * {
+          font-size: 1.1em;
+        }
+        ul {
+          list-style: none;
+          font-size: 1.3em;
+        }
+        a {
+          i {
+            font-size: 1.8em;
+            padding: 10px;
+          }
+          //i
+        }
+        //a
+      }
+      //div
+      .col-lg-12 {
+        p {
+          margin-bottom: 2px;
         }
       }
     }
+    //.footer-container
   }
 
 }
@@ -248,5 +288,43 @@
 @include tablet {
   .main-nav {
     height: 200px;
+  }
+
+  footer {
+
+    .footer-container {
+      width: 100%;
+
+
+      div {
+        h3 {
+          text-decoration: underline;
+          margin-bottom: 3px;
+          font-size: 1.9em;
+        }
+        * {
+          font-size: 1.1em;
+        }
+        ul {
+          list-style: none;
+          font-size: 1.3em;
+        }
+        a {
+          i {
+            font-size: 1.8em;
+            padding: 10px;
+          }
+          //i
+        }
+        //a
+      }
+      //div
+      .col-lg-12 {
+        p {
+          margin-bottom: 2px;
+        }
+      }
+    }
+    //.footer-container
   }
 }

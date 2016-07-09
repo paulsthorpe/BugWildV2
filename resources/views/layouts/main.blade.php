@@ -31,17 +31,17 @@
 @yield('content')
 
 
-<footer>
+<footer style="margin-top: 100px;">
     <div class="footer-container">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <h3>Find Me On Social Media</h3>
                     <a href='http://www.facebook.com/Bug-Wild-1580034655571591/'><i
                                 class="fa fa-facebook-square"></i></a>
                     <a href="http://www.instagram.com/bug.wild/"><i class="fa fa-instagram"></i></a>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-4">
                     <h3>Quick Links</h3>
                     <ul>
                         <a href="/featured">
@@ -58,7 +58,7 @@
                         </a>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-4">
                     <h3>Recent Post</h3>
                     <ul>
                         @if(!empty($recent_posts))
@@ -68,7 +68,7 @@
                         @endif
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-4">
                     <h3>New Flies</h3>
                     <ul>
                         @if(!empty($new_products))
@@ -83,7 +83,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 affilate-links">
-                    <p>Affilates</p>
+                    <h3>Affilates</h3>
                     <ul>
                         <a href="http://www.flyfishfood.com/">
                             <li>Fly Fish Food</li>

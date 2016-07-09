@@ -57,11 +57,10 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <img src="/images/product_images/{{$new->image1}}"/>
                     <a href="/shop/{{$new->slug}}">
-                        <button class="btn-small">More Details...</button>
-                    </a>
-
-                    <a href="/shop/{{$new->slug}}">
                         <h2>{{$new->title}}</h2>
+                    </a>
+                    <a href="/shop/{{$new->slug}}">
+                        <button class="btn-small">More Details...</button>
                     </a>
 
                 </div>
@@ -78,21 +77,8 @@
             @foreach($recent_posts as $post)
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 post-thumb">
                     <img src='/images/blog_images/{{$post->image}}'>
-
-
                     <a href="/blog/{{$post->slug}}"><h2>{{$post->title}}</h2></a>
-                    <h4>Date: {{Carbon\Carbon::parse($post->created_at)->format('M  d, Y')}}</h4>
-                    <h4>In: {{$post->category->title}}</h4>
-                <!-- <pre class="excerpt">{{substr($post->body, 0, 300)}}... &nbsp<a href="/blog/{{$post->slug}}">More</a></pre> -->
-
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 post-thumb">
-
-                    <img src='/images/blog_images/{{$post->image}}'>
-
-
-                    <a href="/blog/{{$post->slug}}"><h2>{{$post->title}}</h2></a>
-                    <h4>Date: {{Carbon\Carbon::parse($post->created_at)->format('M  d, Y')}}</h4>
+                    <h4>{{Carbon\Carbon::parse($post->created_at)->format('M  d, Y')}}</h4>
                     <h4>In: {{$post->category->title}}</h4>
                 <!-- <pre class="excerpt">{{substr($post->body, 0, 300)}}... &nbsp<a href="/blog/{{$post->slug}}">More</a></pre> -->
 
@@ -110,45 +96,22 @@
             <p>
                 My name is Daniel Seaman and I own and operate Bug Wild out of eastern North Carolina. I have been
                 fishing a little here and there my whole life, but really started fishing consistently while in college
-                with some friends. After graduation, the job search was a bit slower than expected, mostly due to the
-                downturn of the economy (especially with an architectural degree). I needed something to pass the time
-                while job searching…so I began fishing more and more, basically every day. Eventually, spin fishing got
-                somewhat predictable to me so I decided to pursue fly fishing. I quickly found that fly fishing was
-                actually more efficient at catching fish than traditional spin fishing, at least for me (I was never a
-                great fisherman).
+                with some friends.
                 <br></br>
                 After two years of slinging other people’s files—mostly from online value stores—I decided to give tying
                 my own flies a shot. I have always been somewhat “artsy”, so this was a good way to incorporate that
-                into a useable application. Living in Rocky Mount, NC a lot of folks around here don’t fly fish at all.
-                In fact, the closest fly shop is several hours away. I really have to rely on the internet for advice,
-                materials and ideas.
+                into a useable application.
                 <br></br>
                 I purchased my first vise in June 2014. Needless to say, it has been slowly downhill since then (in a
                 good way). I have never been as addicted to anything in my entire life, as I am with tying flies.
-                Something about the mindset and process really calms me down. If you know me personally, you understand
-                what I mean by this. I have little, to no patience for anything…..except tying flies.
-                <br></br>
-                When I first started tying, I began researching fly patterns and popular artists and stumbled upon Pat
-                Cohen’s work randomly in Google Images. I thought his deer hair work was the coolest thing I’ve ever
-                seen and knew I had to try it myself. After several hundred attempts of my own, folks were starting to
-                notice my work and wanted to purchase flies from me. I had no intentions on selling flies, and never
-                thought I would ever be at this point….it just sort-of happened.
                 <br></br>
                 I tie mostly warm water flies, specifically for targeting the larger species in my local waters, such as
                 bass and carp. I really love when a big bucket mouth inhales a fly. I enjoy tying articulated flies and
-                top water bugs. You can easily see who some of my major influences are in my flies (including
-                FrankenFly). I would not be where I am today without help, advice, and ideas from the best fly tiers in
+                top water bugs. You can easily see who some of my major influences are in my flies. I would not be where I am today without help, advice, and ideas from the best fly tiers in
                 the world.
                 <br></br>
-                I am not a large commercial fly tier; I really prefer small custom orders. I work a full time “8-5” job
-                as an estimator at a metal building company, so this is absolutely not my main source of income. I
-                honestly don’t know how folks do this as a full time job. I have tremendous respect for the
-                professionals. I always believe in quality over quantity, in everything I do in life. I am probably much
-                slower than some folks, but I believe if you take your time, you can accomplish anything. People
-                constantly ask me for advice on how to improve their fly tying and I say, “test your flies.” You can tie
-                the prettiest flies in the world, but if you don’t test them out in the water, they could look like
-                total garbage to a fish and not perform as expected. You don’t need anything fancy to do this, just a
-                sink or a bathtub.
+                I am not a large commercial fly tier; I really prefer small custom orders. I always believe in quality over quantity, in everything I do in life. I am probably much
+                slower than some folks, but I believe if you take your time, you can accomplish anything.
                 <br></br>
                 I am very glad people are enjoying my work; it makes me extremely happy, and motivates me to continue
                 doing what I do. I am also very thankful for certain companies for giving me professional opportunities
@@ -190,13 +153,13 @@
     <div class="footer-container">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <h3>Find Me On Social Media</h3>
                     <a href='http://www.facebook.com/Bug-Wild-1580034655571591/'><i
                                 class="fa fa-facebook-square"></i></a>
                     <a href="http://www.instagram.com/bug.wild/"><i class="fa fa-instagram"></i></a>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-4">
                     <h3>Quick Links</h3>
                     <ul>
                         <a href="/featured">
@@ -213,7 +176,7 @@
                         </a>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-4">
                     <h3>Recent Post</h3>
                     <ul>
                         @if(!empty($recent_posts))
@@ -223,7 +186,7 @@
                         @endif
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-4">
                     <h3>New Flies</h3>
                     <ul>
                         @if(!empty($new_products))
@@ -238,7 +201,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 affilate-links">
-                    <p>Affilates</p>
+                    <h3>Affilates</h3>
                     <ul>
                         <a href="http://www.flyfishfood.com/">
                             <li>Fly Fish Food</li>
