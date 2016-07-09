@@ -8,6 +8,11 @@
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
     <title>@yield('title')</title>
+    <style media="screen">
+    body {
+      min-height: 100vh;
+    }
+    </style>
 </head>
 <header class="main-nav">
     <div class="logo">
