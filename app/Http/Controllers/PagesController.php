@@ -15,4 +15,8 @@ class PagesController extends Controller
         $recent_posts = Post::take(4)->where('status', 1)->orderBy('id', 'DESC')->get();
         return view('layouts.landing', compact('new_products', 'recent_posts'));
     }
+
+    public function preventRegister(){
+      return redirect('/');
+    }
 }

@@ -14,11 +14,11 @@
 
 
 
-
+route::get('/register' 'PagesController@preventRegister');
 
 
 Route::group(['middleware' => 'auth'], function(){
-  
+
   Route::get('/', 'PagesController@homepage');
 
   Route::get('/shop', 'ShopController@index');
