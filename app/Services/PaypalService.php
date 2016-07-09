@@ -58,7 +58,7 @@ class PaypalService
     private $total = 0;
     private $items = [];
     private $itemsList;
-    private $shipping = 700;
+    private $shipping = 001;
     private $payer;
     private $details;
     private $transaction;
