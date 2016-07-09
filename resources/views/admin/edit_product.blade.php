@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group">
                         <label for="product-description">Product Description</label>
-          <textarea name="description" cols="30" rows="10" class="form-control">{{$product->description}}</textarea>
+                        <textarea name="description" cols="30" rows="10" class="form-control">{{$product->description}}</textarea>
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-3">

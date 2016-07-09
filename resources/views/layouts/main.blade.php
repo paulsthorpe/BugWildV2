@@ -44,14 +44,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <h3>Quick Links</h3>
                     <ul>
+                        <a href="/featured">
+                            <li>Featured Products</li>
+                        </a>
                         <a href="/Shop">
                             <li>Shop</li>
                         </a>
                         <a href="/sale">
                             <li>On Sale</li>
-                        </a>
-                        <a href="/featured">
-                            <li>Featured Products</li>
                         </a>
                         <a href="/cart">
                             <li>Cart</li>
@@ -62,8 +62,8 @@
                     <h3>Recent Post</h3>
                     <ul>
                         @if(!empty($recent_posts))
-                            @foreach($recent_posts as $recent_post)
-                                <li><a href="/blog/{{$recent_post->slug}}">{{$recent_post->title}}</a></li>
+                            @foreach($recent_posts as $post)
+                                <li><a href="/blog/{{$post->slug}}">{{$post->title}}</a></li>
                             @endforeach
                         @endif
                     </ul>
@@ -83,11 +83,17 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 affilate-links">
-                    <p>Bugwild Affilates</p>
+                    <p>Affilates</p>
                     <ul>
-                      <li>1</li>
-                      <li>2</li>
-                      <li>3</li>
+                        <a href="http://www.flyfishfood.com/">
+                            <li>Fly Fish Food</li>
+                        </a>
+                        <a href="http://www.deercreek.co.uk/">
+                            <li>Deer Creek</li>
+                        </a>
+                        <a href="http://www.castersonlineflyshop.com/">
+                            <li>Casters Online Fly Shop</li>
+                        </a>
                     </ul>
                 </div>
             </div>
@@ -100,12 +106,3 @@
         </div>
     </div>
 </footer>
-
-<script type="text/javascript">
-  $('.menu-items:nth-child(5)').hover(function(){
-    var prev = $(this).text;
-    $(this).text('Coming Soon!').css('color','darkorange');
-  }, function(){
-    $(this).text('Blog').css('color','darkorange');
-  });
-</script>

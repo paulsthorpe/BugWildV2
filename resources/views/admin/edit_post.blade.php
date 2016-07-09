@@ -5,9 +5,10 @@
             <div class="row">
                 <h1 class="page-header">Edit Post</h1>
             </div>
-            <form action="/admin/post/{{$post->id}}" method="post" enctype="multipart/form-data">
+            <form action="/admin/post" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
+                <input type="hidden" name="post" value="{{$post->id}}">
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="product-title">Post Title</label>
@@ -15,9 +16,7 @@
                     </div>
                     <div class="form-group">
                         <label for="post-content">Post Content</label>
-          <textarea name="body" id="" cols="30" rows="30" class="form-control">
-            {{$post->body}}
-          </textarea>
+                        <textarea name="body" id="" cols="30" rows="30" class="form-control">{{$post->body}}</textarea>
                     </div>
                 </div><!--Main Content-->
                 <!-- SIDEBAR-->

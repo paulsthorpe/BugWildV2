@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
           $table->text('body');
           $table->string('image');
           $table->string('slug');
-          $table->boolean('draft');
+          $table->boolean('status');
+          $table->integer('post_category_id')->unsigned()->index();
           $table->timestamps();
         });
     }

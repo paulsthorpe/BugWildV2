@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="post_categories">Post Category</label>
                         <hr>
-                        <select name="categories" id="" class="form-control">
+                        <select name="category" id="" class="form-control">
                             @if(!empty($categories))
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->title}}</option>;

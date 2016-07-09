@@ -26,12 +26,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('category')->orderBy('id', 'DESC')->get();
-        foreach ($posts as $post) {
-            foreach ($post->category as $id) {
-                $category = PostCategory::find($id);
-                $post->cat = $category->title;
-            }
-        }
+
         return view('admin.posts_index', compact('posts'));
     }
 
@@ -52,8 +47,8 @@ class PostController extends Controller
      */
     public function save(Request $request)
     {
-        $this->postService->save($request);
-        return redirect('/admin/post');
+        PostService::save($request);
+        return redirect('/admin/posts');
     }
 
     /**
@@ -68,14 +63,30 @@ class PostController extends Controller
     }
 
     /**
-     * @param Post $post
+     *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Post $post, Request $request)
+    public function patch(Request $request)
     {
-        $this->postService->update($post, $request);
-        return redirect('/admin/post');
+        PostService::patch($request);
+        return redirect('/admin/posts');
+    }
+
+    /**
+     *
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function status(Post $post)
+    {
+        if($post->status === 0){
+          $post->status = 1;
+        } else {
+          $post->status = 0;
+        }
+        $post->save();
+        return redirect('/admin/posts');
     }
 
     /**
@@ -84,7 +95,7 @@ class PostController extends Controller
      */
     public function destroy(Request $request)
     {
-        $post = Post::find($request->id);
+        $post = Post::find($request->post);
         $post->delete();
         return back();
     }

@@ -19,22 +19,25 @@
     @endif
     @if(!empty($product))
         <div class="item-display">
-          <div class="quick-links">
-            <span><a href="/shop">Shop</a></span> / <span><a href="/shop/category/{{$category->slug}}">{{$category->title}}</a></span> / <span>Product</span>
-          </div>
+            <div class="quick-links">
+                <span><a href="/shop">Shop</a></span> / <span><a
+                            href="/shop/category/{{$category->slug}}">{{$category->title}}</a></span> /
+                <span>Product</span>
+            </div>
             <div class="row">
                 <div class="item-picture col-lg-4 col-md-4 col-sm-12">
                     <img class="default-image" src="/images/product_images/{{$product->image1}}"/>
                     <img class="blow-up-image" src="/images/product_images/{{$product->image1}}"/>
                     <div class="thumbs-container">
-                      <div class="item-thumbs"><img src="/images/product_images/{{$product->image1}}" alt=""></div>
-                      @if(!empty($product->image2))
-                          <div class="item-thumbs"><img src="/images/product_images/{{$product->image2}}" alt=""></div>
-                      @endif
-                      @if(!empty($product->image3))
-                          <div class="item-thumbs" style="float: right;"><img
-                                      src="/images/product_images/{{$product->image2}}" alt=""></div>
-                      @endif
+                        <div class="item-thumbs"><img src="/images/product_images/{{$product->image1}}" alt=""></div>
+                        @if(!empty($product->image2))
+                            <div class="item-thumbs"><img src="/images/product_images/{{$product->image2}}" alt="">
+                            </div>
+                        @endif
+                        @if(!empty($product->image3))
+                            <div class="item-thumbs" style="float: right;"><img
+                                        src="/images/product_images/{{$product->image2}}" alt=""></div>
+                        @endif
                     </div>
                 </div>
                 <div class="item-details col-lg-8 col-md-8 col-sm-12">
@@ -67,49 +70,49 @@
                                 </div>
                             </div>
                             <div class="row">
-                              <div class="size">
-                                <label>Size</label>
-                                <select class="" name="size">
-                                    @if(!empty($product->sizes))
-                                        @foreach($product->sizes as $size)
-                                            <option value="{{$size->title}}">
-                                                {{$size->title}}
-                                                @if($size->price!==0)
-                                                    + ${{number_format(($size->price/100), 2, '.', ' ')}}
-                                                @endif
-                                            </option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                              </div>
+                                <div class="size">
+                                    <label>Size</label>
+                                    <select class="" name="size">
+                                        @if(!empty($product->sizes))
+                                            @foreach($product->sizes as $size)
+                                                <option value="{{$size->title}}">
+                                                    {{$size->title}}
+                                                    @if($size->price!==0)
+                                                        + ${{number_format(($size->price/100), 2, '.', ' ')}}
+                                                    @endif
+                                                </option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
 
                             </div>
                         </div>
                         <div class="row">
-                        <button class="btn-small" type="submit">Add to Cart</button>
+                            <button class="btn-small" type="submit">Add to Cart</button>
                         </div>
-                </form>
-                <div class="description">
-                  <div class="tab">
-                    <p>Description</p>
-                  </div>
-                  <div class="description-content">
-                    {{$product->description}}
-                  </div>
+                    </form>
+                    <div class="description">
+                        <div class="tab">
+                            <p>Description</p>
+                        </div>
+                        <div class="description-content">
+                            {{$product->description}}
+                        </div>
+                    </div>
                 </div>
-        </div>
-        </div>
+            </div>
         </div>
 
         </div>
         @if(!empty($new_products))
-        <h1>Newest Flies</h1>
-        <div class="newest-flies">
-          <div class="row">
+            <h1>Newest Flies</h1>
+            <div class="newest-flies">
+                <div class="row">
 
 
-            @foreach($new_products as $new)
-<!--
+                @foreach($new_products as $new)
+                    <!--
                 <div class="new-fly-thumbs col-lg-4" id="item-thumbnail">
                     <div class="thumbnail-content-container">
                         <img src="/images/product_images/{{$new->image1}}" class="thumbnail-image">
@@ -119,24 +122,24 @@
                         </a>
                     </div>
                 </div> -->
-                <div class="col-lg-3 col-md-6 col-sm-6" id="item-thumbnail">
-                    <div class="thumbnail-content-container">
-                        <div class="thumbnail-image"
-                             style="background-image:url('/images/product_images/{{$new->image1}}');">
-                             <a href="/shop/{{$new->slug}}">
-                                 <button class="btn-small">More Details...</button>
-                             </a>
+                        <div class="col-lg-3 col-md-6 col-sm-6" id="item-thumbnail">
+                            <div class="thumbnail-content-container">
+                                <div class="thumbnail-image"
+                                     style="background-image:url('/images/product_images/{{$new->image1}}');">
+                                    <a href="/shop/{{$new->slug}}">
+                                        <button class="btn-small">More Details...</button>
+                                    </a>
+                                </div>
+                                <a href="/shop/{{$new->slug}}">
+                                    <h2>{{$new->title}}</h2>
+                                </a>
+                            </div>
                         </div>
-                         <a href="/shop/{{$new->slug}}">
-                           <h2>{{$new->title}}</h2>
-                        </a>
-                    </div>
+
+                    @endforeach
+
                 </div>
-
-            @endforeach
-
-                          </div>
-                        </div>
+            </div>
         @endif
     @endif
     </body>

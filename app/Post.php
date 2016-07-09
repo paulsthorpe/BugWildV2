@@ -8,7 +8,7 @@ class Post extends Model
 {
 
     public function category(){
-      return $this->belongsToMany('App\PostCategory');
+      return $this->belongsTo('App\PostCategory', 'post_category_id');
     }
 
 }

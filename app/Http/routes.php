@@ -18,9 +18,8 @@
 
 
 Route::group(['middleware' => 'auth'], function(){
-  Route::get('/', function(){
-    return view('layouts.landing');
-  });
+  
+  Route::get('/', 'PagesController@homepage');
 
   Route::get('/shop', 'ShopController@index');
 
@@ -124,6 +123,8 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/add_post', 'PostController@add');
 
   Route::get('/admin/edit_post/{post}', 'PostController@edit');
+
+  Route::get('/admin/postStatus/{post}', 'PostController@status');
 
   Route::post('/admin/post', 'PostController@save');
 

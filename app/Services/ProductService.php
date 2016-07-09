@@ -90,6 +90,7 @@ class ProductService
         $product->slug = str_slug($product->title);
         $product->price = $request->price;
         //store image name to pass to image field
+        $counter = 1;
         foreach ($request->file('image') as $image) {
           if($image){
             $imageName = $image->getClientOriginalName();

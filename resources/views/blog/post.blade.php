@@ -8,6 +8,7 @@
   @endif
 @endsection
 
+@section('content')
 <body>
 <style>
     .post-bottom-nav .col-lg-2 ul li {
@@ -45,7 +46,7 @@
             <div class="post-container">
                <img src='/images/blog_images/{{$post->image}}'>
                <a href="post.php?post_id=$post->post_id"><h2>{{$post->title}}</h2></a>
-               <h3>{{$post->created_at}}</h3>
+               <h3>{{Carbon\Carbon::parse($post->created_at)->format('M  d, Y')}}</h3>
                <h3>In: {{$post->category->title}}</h3>
                <pre>{{$post->body}}</pre>
             </div>

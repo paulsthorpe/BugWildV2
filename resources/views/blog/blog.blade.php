@@ -19,7 +19,7 @@
            <ul>
              @if(!empty($recent_posts))
              @foreach($recent_posts as $post)
-                 <li><a href="/post/{{$post->slug}}">{{$post->title}}</a></li>
+                 <li><a href="/blog/{{$post->slug}}">{{$post->title}}</a></li>
              @endforeach
              @else
                  <li>There are no post...</li>
@@ -29,7 +29,7 @@
            <ul>
              @if(!empty($categories))
              @foreach($categories as $category)
-               <li><a href="/post/category/{{$category->slug}}">{{$category->title}}</a></li>
+               <li><a href="/blog/category/{{$category->slug}}">{{$category->title}}</a></li>
              @endforeach
              @else
               <li>There are no blog categories...</li>
@@ -40,10 +40,10 @@
          @foreach($posts as $post)
             <div class="post-container">
                 <img src='/images/blog_images/{{$post->image}}'>
-                <a href="/post/{{$post->slug}}"><h2>{{$post->title}}</h2></a>
-                <h4>Date: {{$post->created_at}}</h4>
+                <a href="/blog/{{$post->slug}}"><h2>{{$post->title}}</h2></a>
+                <h4>Date: {{Carbon\Carbon::parse($post->created_at)->format('M  d, Y')}}</h4>
                 <h4>In: {{$post->category->title}}</h4>
-                <pre class="excerpt">{{substr($post->body, 0, 300)}}<a href="post.php?post_id=$post->post_id">More</a></pre>
+                <pre class="excerpt">{{substr($post->body, 0, 300)}}<a href="/blog/{{$post->slug}}">More</a></pre>
             </div>
           @endforeach
           {{ $posts->links() }}

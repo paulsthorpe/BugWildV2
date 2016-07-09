@@ -17,6 +17,7 @@ class BlogCategoriesController extends Controller
   public function save(Request $request){
     $category = new PostCategory;
     $category->title = $request->title;
+    $category->slug = str_slug($category->title);
     $category->save();
     return back();
   }
@@ -24,6 +25,7 @@ class BlogCategoriesController extends Controller
   public function patch(Request $request){
     $category = PostCategory::find($request->id);
     $category->title = $request->title;
+    $category->slug = str_slug($category->title);
     $category->save();
     return back();
   }

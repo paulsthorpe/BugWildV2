@@ -5733,47 +5733,181 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-.landing {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  /*background-color: rgba(0,0,0,.3);*/
-  overflow: hidden;
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center; }
-  .landing .background {
-    position: absolute;
-    top: 0;
-    left: 0;
+@media screen and (max-device-width: 3000px) {
+  .landing {
+    width: 100%;
     height: 100vh;
-    width: 100vw;
-    z-index: -5;
+    margin: 0;
+    /*background-color: rgba(0,0,0,.3);*/
     overflow: hidden;
-    background: #cf4e00;
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, black), color-stop(10%, rgba(0, 0, 0, 0.91)), color-stop(86%, rgba(207, 78, 0, 0.9)), color-stop(100%, rgba(207, 78, 0, 0.78)));
-    background: linear-gradient(to bottom, #3e2503 0%, rgba(81, 48, 4, 0.95) 15%, rgba(120, 71, 7, 0.95) 25%, rgba(156, 91, 6, 0.9) 38%, rgba(207, 78, 0, 0.78) 86%, rgba(207, 78, 0, 0.78) 100%); }
-    .landing .background img {
-      display: block;
-      position: relative;
-      height: 100vh;
-      width: 100vw;
-      /*bottom: 200px;*/
-      left: 0;
-      z-index: -6;
-      opacity: .2; }
-    .landing .background .color {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .landing .background {
       position: absolute;
       top: 0;
       left: 0;
       height: 100vh;
       width: 100vw;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: -3; }
+      z-index: -5;
+      overflow: hidden;
+      background: #cf4e00;
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, black), color-stop(10%, rgba(0, 0, 0, 0.91)), color-stop(86%, rgba(207, 78, 0, 0.9)), color-stop(100%, rgba(207, 78, 0, 0.78)));
+      background: linear-gradient(to bottom, #3e2503 0%, rgba(81, 48, 4, 0.95) 15%, rgba(120, 71, 7, 0.95) 25%, rgba(156, 91, 6, 0.9) 38%, rgba(207, 78, 0, 0.78) 86%, rgba(207, 78, 0, 0.78) 100%); }
+      .landing .background img {
+        display: block;
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        /*bottom: 200px;*/
+        left: 0;
+        z-index: -6;
+        opacity: .2; }
+      .landing .background .color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: -3; }
+    .landing .btn-large {
+      display: inline-block;
+      padding: 10px 30px;
+      margin: 80px 140px;
+      width: 230px;
+      font-weight: 300;
+      font-size: 2em;
+      text-decoration: none;
+      border-radius: 200px;
+      background-color: rgba(255, 255, 255, 0);
+      transition: background-color .2s, border .2s;
+      color: #fff; }
+      .landing .btn-large:hover {
+        background-color: #f19f0f;
+        border: 2px solid #fff; }
+    .landing nav {
+      position: absolute;
+      top: 80px;
+      width: 100%;
+      height: 250px; }
+      .landing nav ul {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+        padding-top: 50px;
+        display: -ms-flexbox;
+        display: flex; }
+        .landing nav ul li {
+          display: inline-block;
+          -ms-flex: 1;
+          flex: 1;
+          list-style: none;
+          font-size: 2em; }
+    .landing .logo {
+      position: absolute;
+      top: 0;
+      width: 30%;
+      height: auto;
+      left: 50%;
+      margin-left: -15%; }
+      .landing .logo img {
+        width: 100%; }
+    .landing .logo-caption {
+      width: 75%;
+      height: auto;
+      color: #fff;
+      text-align: center;
+      margin: 0 auto;
+      z-index: 1; }
+      .landing .logo-caption .home-header {
+        font-size: 6.5em;
+        text-shadow: 1px 1px #c0c0c0, 2px 2px #c0c0c0, 3px 3px #c0c0c0;
+        width: 100%; }
+    .landing .top .nav-button {
+      display: none; }
+  .home-content .new-flies {
+    height: auto;
+    width: 65%;
+    margin: 100px auto; }
+    .home-content .new-flies h1 {
+      font-size: 4em;
+      margin-bottom: 30px; }
+    .home-content .new-flies div {
+      position: relative; }
+      .home-content .new-flies div img {
+        position: relative;
+        width: 100%; }
+  .home-content .recent-posts {
+    width: 85%;
+    margin: 0 auto 100px;
+    position: relative; }
+    .home-content .recent-posts h1 {
+      font-size: 4em;
+      margin-bottom: 30px; }
+    .home-content .recent-posts .post-thumb {
+      position: relative; }
+      .home-content .recent-posts .post-thumb img {
+        width: 100%;
+        position: relative; }
+  .home-content .about {
+    max-width: 100vw;
+    overflow: hidden; }
+    .home-content .about h1 {
+      font-size: 4em;
+      margin-bottom: 30px; }
+    .home-content .about img {
+      border-radius: 50%;
+      margin-bottom: 30px; }
+    .home-content .about p {
+      font-size: 1.4em; }
+  .home-content .affiliates {
+    margin-top: 70px;
+    position: relative;
+    max-width: 100vw;
+    overflow: hidden; }
+    .home-content .affiliates h1 {
+      font-size: 4em;
+      margin-bottom: 30px; }
+    .home-content .affiliates .affiliate-container {
+      position: relative;
+      width: 80%;
+      margin: 0 auto;
+      height: 100%;
+      display: table; }
+      .home-content .affiliates .affiliate-container .af-link {
+        position: relative;
+        height: 100%;
+        width: 32%;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+        .home-content .affiliates .affiliate-container .af-link .af-image {
+          -ms-flex: 1;
+          flex: 1;
+          max-width: 100%;
+          height: 100%;
+          -ms-flex-align: center;
+          align-items: center;
+          -ms-flex-pack: center;
+          justify-content: center; }
+          .home-content .affiliates .affiliate-container .af-link .af-image img {
+            -ms-flex: 1;
+            flex: 1;
+            max-width: 100%;
+            max-height: 100%; } }
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 1199px) {
   .landing .btn-large {
     display: inline-block;
     padding: 10px 30px;
@@ -5819,19 +5953,63 @@ button.close {
     margin-left: -15%; }
     .landing .logo img {
       width: 100%; }
-  .landing .logo-caption {
-    width: 75%;
-    height: auto;
-    color: #fff;
-    text-align: center;
-    margin: 250px auto 0;
-    z-index: 1; }
-    .landing .logo-caption .home-header {
-      font-size: 6.5em;
-      text-shadow: 1px 1px #c0c0c0, 2px 2px #c0c0c0, 3px 3px #c0c0c0;
-      width: 100%; }
   .landing .top .nav-button {
     display: none; }
+  .home-content .new-flies {
+    width: 90%;
+    margin: 100px auto; }
+  .home-content .recent-posts {
+    width: 100%; }
+  .home-content .about {
+    max-width: 100vw;
+    overflow: hidden; }
+    .home-content .about h1 {
+      font-size: 4em;
+      margin-bottom: 30px; }
+    .home-content .about img {
+      border-radius: 50%;
+      margin-bottom: 30px; }
+    .home-content .about p {
+      font-size: 1.2em;
+      padding: 0 40px; }
+  .home-content .affiliates {
+    margin-top: 70px;
+    position: relative;
+    max-width: 100vw;
+    overflow: hidden; }
+    .home-content .affiliates h1 {
+      font-size: 4em;
+      margin-bottom: 30px; }
+    .home-content .affiliates .affiliate-container {
+      position: relative;
+      width: 80%;
+      margin: 0 auto;
+      height: 100%;
+      display: table; }
+      .home-content .affiliates .affiliate-container .af-link {
+        position: relative;
+        height: 100%;
+        width: 32%;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+        .home-content .affiliates .affiliate-container .af-link .af-image {
+          -ms-flex: 1;
+          flex: 1;
+          max-width: 100%;
+          height: 100%;
+          -ms-flex-align: center;
+          align-items: center;
+          -ms-flex-pack: center;
+          justify-content: center; }
+          .home-content .affiliates .affiliate-container .af-link .af-image img {
+            -ms-flex: 1;
+            flex: 1;
+            max-width: 100%;
+            max-height: 100%; } }
 
 .admin-body #page-wrapper {
   background-color: #F1F1F1 !important; }

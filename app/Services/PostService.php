@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use Carbon\Carbon;
 use App\Sale;
 use App\Post;
+use App\PostCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ class PostService
     /**
      * @param $request
      */
-    public function save($request)
+    public static function save($request)
     {
         //instantiate new post
         $post = new Post;
@@ -38,25 +38,29 @@ class PostService
         $post->tags = $request->tags;
         $post->slug = str_slug($post->title);
         //store image name to pass to image field
-        if (!empty($request->file)) {
+        if ($request->file('image')) {
             $imageName = $request->file('image')->getClientOriginalName();
             //move imave to directory
             $file = $request->file('image')->move(public_path() . "/images/blog_images/", $imageName);
             //save image name
             $post->image = $imageName;
         }
-        //create new post
-        $post->save();
+
+
         //if categories were applied attach them to the post
-        $post->category()->attach($request->category);
+        $category = PostCategory::find($request->category);
+
+        $category->post()->save($post);
+
     }
 
     /**
      * @param $post
      * @param $request
      */
-    public function update($post, $request)
+    public static function patch($request)
     {
+        $post = Post::find($request->post);
         //assign data
         $post->id = $post->id;
         $post->title = $request->title;
@@ -66,14 +70,15 @@ class PostService
         if ($request->file('image')) {
             $imageName = $request->file('image')->getClientOriginalName();
             //move imave to directory
-            $file = $request->file('image')->move(public_path() . "/blog_images/", $imageName);
+            $file = $request->file('image')->move(public_path() . "/images/blog_images/", $imageName);
             //save image name
             $post->image = $imageName;
         }
-        //create new post
-        $post->save();
+
+
         //if categories were applied attach them to the post after detaching previous
-        $post->category()->attach($request->category);
+        $category = PostCategory::find($request->category);
+        $category->post()->save($post);
     }
 
 
