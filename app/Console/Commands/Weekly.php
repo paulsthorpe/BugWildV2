@@ -43,11 +43,13 @@ class Weekly extends Command
      */
     public function handle()
     {
-      $orders = Order::select('id', 'total', 'paypal_total', 'paypal_status', 'trans_id','shipped','created_at')->get();
+      $start = $this->carbon->now()->startOfWeek();
+      $end = $this->carbon->now()->endOfWeek();
+      $orders = Order::whereBetween('created_at', [$start, $end])->select('id', 'total', 'paypal_total', 'paypal_status', 'trans_id','shipped','created_at')->get();
 
 
 
-      $this->excel::create('Orders ', function($excel) use($orders){
+      $this->excel::create('Orders_'.$end->toFormattedDateString() , function($excel) use($orders){
 
 
           $excel->sheet('Orders', function($sheet) use($orders){
@@ -87,10 +89,13 @@ class Weekly extends Command
 
       })->store('xls');
 
-      $records = [1,2];
-      Mail::send('email.test', ['records' => $records] , function ($message) use ($records) {
-      $subject = 'Weekly Report 4';
-      $message->subject('test')
+      $file = storage_path().'/exports/Orders_'.$end->toFormattedDateString();
+      $date = $end->toFormattedDateString();
+      $email = [];
+
+      Mail::send('email.test', ['email' => $email] , function ($message) use ($file,$date) {
+      $message->subject('Weekly Report'.$date);
+      $message->attach($file)
       ->to('bugwildflyco@gmail.com');
       });
 
