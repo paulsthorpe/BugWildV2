@@ -70,9 +70,10 @@
     </div>
 
 
-    <div class="recent-posts row">
-        <h1>Recent Blog Posts</h1>
+
         @if(!empty($recent_posts))
+        <div class="recent-posts row">
+            <h1>Recent Blog Posts</h1>
             <div class="col-lg-2 col-md-2 col-sm-2"></div>
             @foreach($recent_posts as $post)
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 post-thumb">
@@ -83,9 +84,11 @@
                 <!-- <pre class="excerpt">{{substr($post->body, 0, 300)}}... &nbsp<a href="/blog/{{$post->slug}}">More</a></pre> -->
 
                 </div>
+
             @endforeach
+        </div>
         @endif
-    </div>
+
 
 
     <div class="row about" id="about">
