@@ -194,6 +194,7 @@
         border: 1px solid darkorange;
         width: 100%;
         display: inline-block;
+        box-sizing: border-box;
         &.left {
           width: 40%;
           float: left;
@@ -358,6 +359,7 @@
       border: 1px solid darkorange;
       width: 100%;
       display: inline-block;
+      box-sizing: border-box;
       &.left {
         width: 40%;
         float: left;
@@ -497,6 +499,7 @@
       border: 1px solid darkorange;
       width: 100%;
       display: inline-block;
+      box-sizing: border-box;
       &.left {
         width: 35%;
         float: left;

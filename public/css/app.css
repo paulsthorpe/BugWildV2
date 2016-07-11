@@ -6628,7 +6628,8 @@ button.close {
       background-color: darkorange;
       border: 1px solid darkorange;
       width: 100%;
-      display: inline-block; }
+      display: inline-block;
+      box-sizing: border-box; }
       .item-page-maybe .newest-flies hr.left {
         width: 40%;
         float: left; }
@@ -6713,7 +6714,8 @@ button.close {
       background-color: darkorange;
       border: 1px solid darkorange;
       width: 100%;
-      display: inline-block; }
+      display: inline-block;
+      box-sizing: border-box; }
       .newest-flies hr.left {
         width: 40%;
         float: left; }
@@ -6774,7 +6776,8 @@ button.close {
     background-color: darkorange;
     border: 1px solid darkorange;
     width: 100%;
-    display: inline-block; }
+    display: inline-block;
+    box-sizing: border-box; }
     .newest-flies hr.left {
       width: 35%;
       float: left; }
