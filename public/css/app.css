@@ -6086,7 +6086,7 @@ button.close {
     height: 300px;
     width: 100%;
     position: relative;
-    z-index: +3;
+    z-index: +200;
     overflow: visible; }
     .main-nav .logo {
       width: 50%;
@@ -6117,7 +6117,7 @@ button.close {
       position: relative;
       top: 300px;
       left: 0;
-      z-index: +6; }
+      z-index: +200; }
       .main-nav nav #menu {
         width: 100%;
         max-height: 0;
@@ -6125,7 +6125,7 @@ button.close {
         left: 0;
         margin: 0;
         padding: 0;
-        z-index: +6;
+        z-index: +200;
         overflow: hidden;
         transition: max-height 0.5s;
         display: block; }
@@ -6140,7 +6140,7 @@ button.close {
           margin: 0;
           top: 0;
           left: 0;
-          z-index: +6;
+          z-index: +200;
           background-color: #fff;
           border: 1px solid #e38917;
           font-size: 3em; }
@@ -6709,9 +6709,20 @@ button.close {
     width: 95%;
     margin: 0 auto;
     padding: 0 !important; }
+    .newest-flies hr {
+      background-color: darkorange;
+      border: 1px solid darkorange;
+      width: 100%;
+      display: inline-block; }
+      .newest-flies hr.left {
+        width: 40%;
+        float: left; }
+      .newest-flies hr.right {
+        width: 40%;
+        float: right; }
     .newest-flies h1 {
       display: inline-block;
-      max-width: 13%;
+      max-width: 17%;
       transform: translateY(-22px); }
     .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image {
       width: 50%;
@@ -6759,37 +6770,43 @@ button.close {
       padding: 0; }
       .item-page-maybe .item-display .item-details .option-selectors .color-selector {
         margin: 0; }
-  .newest-flies {
+  .newest-flies hr {
+    background-color: darkorange;
+    border: 1px solid darkorange;
+    width: 100%;
+    display: inline-block; }
+    .newest-flies hr.left {
+      width: 40%;
+      float: left; }
+    .newest-flies hr.right {
+      width: 40%;
+      float: right; }
+  .newest-flies h1 {
+    display: inline-block;
+    max-width: 17%;
+    transform: translateY(-22px); }
+  .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image {
     position: relative;
-    width: 95%;
-    margin: 0 auto -100px;
-    padding: 0 !important; }
-    .newest-flies h1 {
-      display: inline-block;
-      max-width: 17%;
-      transform: translateY(-22px); }
-    .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image {
-      position: relative;
-      width: 100% !important;
-      height: 300px; }
-      .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a button {
-        width: 75%;
-        display: block;
-        margin: 0 auto;
-        border-radius: 0;
-        font-size: 3em;
-        height: 20%;
-        transform: translateY(300px);
-        opacity: 0;
-        transition: all 0.2s;
-        background: rgba(0, 0, 0, 0.6);
-        color: darkorange; }
-        .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a button:hover, .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a buttonfocus {
-          background-color: darkorange;
-          color: #fff; }
-      .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image:hover a button, .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image:focus a button {
-        transform: translateY(120px);
-        opacity: 1; } }
+    width: 100% !important;
+    height: 300px; }
+    .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a button {
+      width: 75%;
+      display: block;
+      margin: 0 auto;
+      border-radius: 0;
+      font-size: 3em;
+      height: 20%;
+      transform: translateY(300px);
+      opacity: 0;
+      transition: all 0.2s;
+      background: rgba(0, 0, 0, 0.6);
+      color: darkorange; }
+      .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a button:hover, .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image a buttonfocus {
+        background-color: darkorange;
+        color: #fff; }
+    .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image:hover a button, .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image:focus a button {
+      transform: translateY(120px);
+      opacity: 1; } }
 
 * {
   box-sizing: border-box;

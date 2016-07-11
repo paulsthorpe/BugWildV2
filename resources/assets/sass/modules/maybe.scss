@@ -353,9 +353,23 @@
     width: 95%;
     margin: 0 auto;
     padding: 0!important;
+    hr {
+      background-color: darkorange;
+      border: 1px solid darkorange;
+      width: 100%;
+      display: inline-block;
+      &.left {
+        width: 40%;
+        float: left;
+      }
+      &.right {
+        width: 40%;
+        float: right;
+      }
+    }
     h1 {
       display: inline-block;
-      max-width: 13%;
+      max-width: 17%;
       transform: translateY(-22px);
     }
     #item-thumbnail {
@@ -480,10 +494,20 @@
     //item-display
   }
   .newest-flies {
-    position: relative;
-    width: 95%;
-    margin: 0 auto -100px;
-    padding: 0!important;
+    hr {
+      background-color: darkorange;
+      border: 1px solid darkorange;
+      width: 100%;
+      display: inline-block;
+      &.left {
+        width: 40%;
+        float: left;
+      }
+      &.right {
+        width: 40%;
+        float: right;
+      }
+    }
     h1 {
       display: inline-block;
       max-width: 17%;
