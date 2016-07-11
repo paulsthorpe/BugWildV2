@@ -426,10 +426,8 @@
       .quick-links {
         z-index: 20;
         top: -40px;
-
         font-size: 1.9em;
       }
-
       .item-picture {
         width: 100%;
         .default-image {
@@ -500,17 +498,17 @@
       width: 100%;
       display: inline-block;
       &.left {
-        width: 40%;
+        width: 35%;
         float: left;
       }
       &.right {
-        width: 40%;
+        width: 35%;
         float: right;
       }
     }
     h1 {
       display: inline-block;
-      max-width: 17%;
+      max-width: 20%;
       transform: translateY(-22px);
     }
     #item-thumbnail {

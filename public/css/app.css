@@ -6776,14 +6776,14 @@ button.close {
     width: 100%;
     display: inline-block; }
     .newest-flies hr.left {
-      width: 40%;
+      width: 35%;
       float: left; }
     .newest-flies hr.right {
-      width: 40%;
+      width: 35%;
       float: right; }
   .newest-flies h1 {
     display: inline-block;
-    max-width: 17%;
+    max-width: 20%;
     transform: translateY(-22px); }
   .newest-flies #item-thumbnail .thumbnail-content-container .thumbnail-image {
     position: relative;
