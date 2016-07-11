@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2868df7a-2ddb-4346-9f18-4d87c295a838" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
     <ignored path="bugwild.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,14 +28,14 @@
       <file leaf-file-name="landing.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/sass/modules/landing.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="3648">
               <caret line="228" column="25" selection-start-line="228" selection-start-column="25" selection-end-line="228" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blog.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="blog.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/sass/modules/blog.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -44,13 +45,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="640">
+              <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
               <folding>
-                <marker date="1468047688620" expanded="true" signature="510:4044" ph="..." />
+                <marker date="1468269734304" expanded="true" signature="4550:4552" ph="..." />
               </folding>
             </state>
           </provider>
@@ -81,9 +82,11 @@
       <file leaf-file-name="item.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/shop/item.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1792">
-              <caret line="112" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="141" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="1584">
+              <caret line="99" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="129" selection-end-column="18" />
+              <folding>
+                <marker date="1468083009453" expanded="true" signature="6350:6368" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,10 +181,11 @@
         <option value="$PROJECT_DIR$/resources/views/admin/add_product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/edit_product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/shop/item.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/landing.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/modules/landing.scss" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/modules/blog.scss" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -261,6 +265,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -565,8 +571,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -626,15 +630,16 @@
       <workItem from="1468028643324" duration="3520000" />
       <workItem from="1468036554768" duration="2071000" />
       <workItem from="1468079848778" duration="697000" />
+      <workItem from="1468269203810" duration="543000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10228000" />
+    <option name="totallyTimeSpent" value="10771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17358491" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -959,25 +964,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/modules/landing.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="3648">
           <caret line="228" column="25" selection-start-line="228" selection-start-column="25" selection-end-line="228" selection-end-column="25" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <marker date="1468047688620" expanded="true" signature="510:4044" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1001,9 +995,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/shop/item.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1792">
-          <caret line="112" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="141" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="1584">
+          <caret line="99" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="129" selection-end-column="18" />
+          <folding>
+            <marker date="1468083009453" expanded="true" signature="6350:6368" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1044,6 +1040,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+          <folding>
+            <marker date="1468269734304" expanded="true" signature="4550:4552" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
