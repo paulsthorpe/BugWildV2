@@ -104,8 +104,14 @@ class ProductService
         //create new product
         $product->save();
         //if categories were applied attach them to the product
-        $product->colors()->attach($request->colors);
-        $product->sizes()->attach($request->sizes);
+        if(!empty($request->colors){
+          $product->colors()->detach();
+          $product->colors()->attach($request->colors);
+        }
+        if(!empty($request->sizes){
+          $product->sizes()->detach();
+          $product->sizes()->attach($request->sizes);
+        }
         $category = ProductCategory::find($request->category);
         $category->products()->save($product);
     }
