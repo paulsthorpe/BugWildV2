@@ -12,9 +12,7 @@
               {{ csrf_field() }}
               <div class="row">
                 <select class="form-control" name="category">
-                  <!-- @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->title}}</options>
-                  @endforeach -->
+  
                 </select>
               </div>
               <br>
@@ -44,7 +42,7 @@
                                 <img src="/images/product_images/{{$product->image1}}" alt="">
                             </td>
                             <td>
-                                <!-- {{$product->category->title}} -->
+
                             </td>
                             <td>{{number_format(($product->price /100), 2, '.', ' ')}}</td>
                             <td><a href="/admin/edit_product/{{$product->id}}">
