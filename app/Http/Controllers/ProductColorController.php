@@ -34,6 +34,7 @@ class ProductColorController extends Controller
     public function destroy(Request $request)
     {
         $color = ProductColor::find($request->id);
+        $color->products()->detach();
         $color->delete();
         return back();
     }

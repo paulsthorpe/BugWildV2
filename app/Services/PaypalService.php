@@ -66,7 +66,7 @@ class PaypalService
     private $payment;
     private $redirectUrls;
     //these properties are to store in session after payment has clear to
-    //display confirmation to customer
+    //display confirmation to customer and save in order details
     private $orderId;
     private $specialInstructions;
     private $paypalTrans;
@@ -272,7 +272,7 @@ class PaypalService
         $order->paypal_status = $json->state;
         $order->trans_id = $json->transactions[0]->related_resources[0]->sale->id;
         $this->paypalTrans = $json->transactions[0]->related_resources[0]->sale->id;
-        //iff special instructions were provided, save them on the order object
+        //if special instructions were provided, save them on the order object
         if (session('special')) {
             $order->special = session('special');
             $this->specialInstructions = session('special');
@@ -300,6 +300,7 @@ class PaypalService
 
         //remove session data
         Session::flush();
+        //save cust/order details
         Session::put('orderId', $this->orderId);
         Session::put('total', $orderTotal);
         Session::put('special', $this->specialInstructions);

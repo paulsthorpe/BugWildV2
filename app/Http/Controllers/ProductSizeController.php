@@ -36,6 +36,7 @@ class ProductSizeController extends Controller
     public function destroy(Request $request)
     {
         $size = ProductSize::find($request->id);
+        $size->products()->detach();
         $size->delete();
         return back();
     }
