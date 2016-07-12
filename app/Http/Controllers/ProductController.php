@@ -22,8 +22,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->productService->index();
-        $categories = ProductCategory::all();
-        return view('admin.products_index', compact('products','categories'));
+        // $categories = ProductCategory::all();
+        return view('admin.products_index', compact('products'));
     }
 
     public function byCategory(Request $request)

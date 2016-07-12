@@ -12,9 +12,9 @@
               {{ csrf_field() }}
               <div class="row">
                 <select class="form-control" name="category">
-                  @foreach($categories as $category)
+                  <!-- @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->title}}</options>
-                  @endforeach
+                  @endforeach -->
                 </select>
               </div>
               <br>
