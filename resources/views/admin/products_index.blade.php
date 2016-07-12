@@ -44,7 +44,7 @@
                                 <img src="/images/product_images/{{$product->image1}}" alt="">
                             </td>
                             <td>
-                              if(!empty($product->category->title))
+                              @if(!empty($product->category->title))
                                 {{$product->category->title}}
                               @endif
                             </td>
