@@ -112,8 +112,11 @@ class ProductService
           $product->sizes()->detach();
           $product->sizes()->attach($request->sizes);
         }
-        $category = ProductCategory::find($request->category);
-        $category->products()->save($product);
+        if(!empty($request->category)){
+          $product->category()->dissociate();
+          $category = ProductCategory::find($request->category);
+          $category->products()->save($product);
+        }
     }
 
 
