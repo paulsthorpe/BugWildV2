@@ -104,11 +104,11 @@ class ProductService
         //create new product
         $product->save();
         //if categories were applied attach them to the product
-        if(!empty($request->colors){
+        if(!empty($request->colors)){
           $product->colors()->detach();
           $product->colors()->attach($request->colors);
         }
-        if(!empty($request->sizes){
+        if(!empty($request->sizes)){
           $product->sizes()->detach();
           $product->sizes()->attach($request->sizes);
         }
