@@ -52,6 +52,7 @@ class ProductCategoriesController extends Controller
     public function destroy(Request $request)
     {
         $category = ProductCategory::find($request->id);
+        $category->products()->dissociate();
         $category->delete();
         return back();
     }
