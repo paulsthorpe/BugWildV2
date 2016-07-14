@@ -22,7 +22,7 @@
             <div class="quick-links">
                 <span><a href="/shop">Shop</a></span> / <span><a
                             href="/shop/category/{{$category->slug}}">{{$category->title}}</a></span> /
-                <span>Product</span>
+                <span>{{$product->title}}</span>
             </div>
             <div class="row">
                 <div class="item-picture col-lg-4 col-md-4 col-sm-12">
