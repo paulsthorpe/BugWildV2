@@ -36,7 +36,7 @@
                         @endif
                         @if(!empty($product->image3))
                             <div class="item-thumbs" style="float: right;"><img
-                                        src="/images/product_images/{{$product->image2}}" alt=""></div>
+                                        src="/images/product_images/{{$product->image3}}" alt=""></div>
                         @endif
                     </div>
                 </div>

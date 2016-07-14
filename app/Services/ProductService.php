@@ -62,7 +62,7 @@ class ProductService
             //move imave to directory
             $file = $image->move(public_path() . "/images/product_images/", $imageName);
             //save image name
-            $product->{'image' . $counter} = $imageName;
+            $product->{'image'.$counter} = $imageName;
             $counter++;
           }
         }
